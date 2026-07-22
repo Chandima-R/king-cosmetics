@@ -1,0 +1,66 @@
+import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
+import FeaturedProductCard from "./FeaturedProductCard";
+import { products } from "@/data/landing/featured-product";
+
+export default function FeaturedProducts() {
+    const featuredProducts = products
+        .filter((product) => product.featured)
+        .slice(0, 4);
+
+    return (
+        <section className="relative overflow-hidden bg-background py-20 md:py-24">
+            {/* Decorative Background */}
+            <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-light/20 blur-3xl" />
+
+            <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 translate-x-1/3 rounded-full bg-primary-soft blur-3xl" />
+
+            <div className="container relative mx-auto px-5 sm:px-6 lg:px-8">
+                {/* Section Heading */}
+                <div className="mx-auto max-w-3xl text-center">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        <Sparkles className="h-4 w-4" />
+                        Featured Products
+                    </span>
+
+                    <h2 className="mt-6 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
+                        Discover Our Most Loved
+                        <span className="block text-primary">Natural Products</span>
+                    </h2>
+
+                    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                        Explore a selection of our featured beauty and personal care
+                        products, thoughtfully chosen to support your everyday routine.
+                    </p>
+                </div>
+
+                {/* Product Grid */}
+                {featuredProducts.length > 0 ? (
+                    <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+                        {featuredProducts.map((product) => (
+                            <FeaturedProductCard key={product.id} product={product} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="mt-12 rounded-3xl border border-dashed border-border bg-card p-10 text-center">
+                        <p className="text-muted-foreground">
+                            Featured products are currently unavailable.
+                        </p>
+                    </div>
+                )}
+
+                {/* View All Button */}
+                <div className="mt-12 flex justify-center">
+                    <Link
+                        href="/products"
+                        className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
+                    >
+                        View All Products
+
+                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                </div>
+            </div>
+        </section>
+    );
+}
