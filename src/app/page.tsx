@@ -1,4 +1,5 @@
 import CompanyIntroduction from "@/components/landing/company-introduction/CompanyIntroduction";
+import TestimonialsSection from "@/components/landing/customer-reviews/TestimonialsSection";
 import FeaturedProducts from "@/components/landing/featured-product/FeaturedProducts";
 import Hero from "@/components/landing/hero/Hero";
 import WhyChooseUsSection from "@/components/landing/why-choose-us/WhyChooseUsSection";
@@ -11,6 +12,7 @@ export default function Home() {
       <CompanyIntroduction />
       <FeaturedProducts />
       <WhyChooseUsSection />
+      <TestimonialsSection />
     </>
   );
 }

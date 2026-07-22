@@ -12,7 +12,7 @@ import { whyChooseUsItems } from "@/data/landing/why-choose-us";
 
 export default function WhyChooseUsSection() {
     return (
-        <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-28">
+        <section className="relative overflow-hidden bg-white">
             {/* Background decorations */}
             <div
                 aria-hidden="true"
