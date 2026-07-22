@@ -3,6 +3,7 @@ import { Quicksand } from "next/font/google";
 
 
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} min-h-screen bg-background font-sans text-body antialiased`}
       >
-
+        <Header />
 
         <main>{children}</main>
       </body>
