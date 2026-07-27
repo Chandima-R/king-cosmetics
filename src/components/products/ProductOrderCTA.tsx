@@ -29,7 +29,7 @@ export default function ProductOrderCTA({
                             Ready to Order?
                         </span>
 
-                        <h2 className="mt-6 text-3xl font-bold sm:text-4xl">
+                        <h2 className="mt-6 text-3xl font-bold sm:text-4xl text-primary-light">
                             Interested in {product.name}?
                         </h2>
 

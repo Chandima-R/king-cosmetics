@@ -132,7 +132,7 @@ export default function ProductGallery({
 
                 {/* Main image */}
                 <div className="order-1 sm:order-2">
-                    <div className="group relative aspect-square overflow-hidden rounded-[2rem] bg-primary-soft">
+                    <div className="group relative aspect-square overflow-hidden">
                         <div className="pointer-events-none absolute left-1/2 top-1/2 h-3/5 w-3/5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-light/25 blur-3xl" />
 
                         <button
