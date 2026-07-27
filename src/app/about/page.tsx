@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Home, Leaf } from "lucide-react";
 import CompanyProfile from "@/components/about/CompanyProfile";
+import VisionMission from "@/components/about/VisionAndMission";
 
 export const metadata: Metadata = {
     title: "About Us | Green Blue Nature",
@@ -69,6 +70,7 @@ export default function AboutUsPage() {
 
 
             <CompanyProfile />
+            <VisionMission />
 
         </main>
     )
