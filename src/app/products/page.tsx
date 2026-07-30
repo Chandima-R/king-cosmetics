@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, Home, Leaf } from "lucide-react";
 import { products } from "@/data/products/product";
 import ProductsGrid from "@/components/products/ProductGrid";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
     title: "Our Products | Green Blue Nature",
@@ -61,7 +62,11 @@ export default function page() {
 
             </section>
 
-            <ProductsGrid products={products} />
+            <Suspense fallback={<div>Loading...</div>}>
+                <ProductsGrid products={products} />
+            </Suspense>
+
+            {/* <ProductsGrid products={products} /> */}
 
         </main>
     )

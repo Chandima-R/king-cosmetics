@@ -8,7 +8,7 @@ import {
 } from "next/navigation";
 import { PackageSearch, RotateCcw } from "lucide-react";
 
-import type { Product } from "@/types/product/product";
+import type { Product } from "@/types/products/product";
 
 import ProductCard from "./ProductCard";
 import SearchBar from "@/components/products/SearchBar";

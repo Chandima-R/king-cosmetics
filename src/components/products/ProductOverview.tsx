@@ -7,7 +7,7 @@ import {
     ShieldCheck,
 } from "lucide-react";
 
-import type { Product } from "@/types/product/product";
+import type { Product } from "@/types/products/product";
 
 type ProductOverviewProps = {
     product: Product;

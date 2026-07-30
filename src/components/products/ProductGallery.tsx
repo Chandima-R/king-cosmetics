@@ -11,7 +11,7 @@ import {
     X,
 } from "lucide-react";
 
-import type { ProductImage } from "@/types/product/product";
+import type { ProductImage } from "@/types/products/product";
 
 type ProductGalleryProps = {
     images: ProductImage[];

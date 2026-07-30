@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
-import type { Product } from "@/types/product/product";
+import type { Product } from "@/types/products/product";
 
 type ProductOrderCTAProps = {
     product: Product;
