@@ -19,6 +19,7 @@ export type FooterData = {
     description: string;
     logo: string;
     informationLinks: FooterLink[];
+    productLinks: FooterLink[];
     socialLinks: SocialLink[];
     contactDetails: ContactDetail[];
 };

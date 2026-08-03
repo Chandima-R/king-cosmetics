@@ -113,8 +113,8 @@ export default function ProductGallery({
                                     }}
                                     aria-label={`View ${productName} image ${index + 1}`}
                                     className={`relative aspect-square overflow-hidden rounded-2xl transition-all duration-300 ${isSelected
-                                        ? "bg-primary-soft ring-2 ring-primary ring-offset-2"
-                                        : "bg-muted/60 hover:bg-primary-soft"
+                                        ? "bg-primary-soft ring-1 ring-primary ring-offset-2"
+                                        : " hover:bg-primary-soft"
                                         }`}
                                 >
                                     <Image
@@ -188,7 +188,7 @@ export default function ProductGallery({
 
                     {/* Mobile thumbnails */}
                     {images.length > 1 && (
-                        <div className="mt-4 flex gap-3 overflow-x-auto pb-2 sm:hidden">
+                        <div className="mt-4 pt-2 flex justify-center gap-3 overflow-x-auto pb-2 sm:hidden">
                             {images.map((image, index) => {
                                 const isSelected = selectedIndex === index;
 
@@ -202,7 +202,7 @@ export default function ProductGallery({
                                         }}
                                         className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl ${isSelected
                                             ? "bg-primary-soft ring-2 ring-primary"
-                                            : "bg-muted/60"
+                                            : ""
                                             }`}
                                     >
                                         <Image

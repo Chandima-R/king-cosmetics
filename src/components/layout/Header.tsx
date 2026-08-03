@@ -207,7 +207,7 @@ export default function Header() {
                             <UserRound size={20} />
                         </button>
 
-                        <Link
+                        {/* <Link
                             href="/products"
                             aria-label="View products"
                             className="relative flex size-10 items-center justify-center rounded-full text-body hover:bg-primary-soft hover:text-primary"
@@ -217,7 +217,7 @@ export default function Header() {
                             <span className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-white">
                                 0
                             </span>
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* Mobile right section */}

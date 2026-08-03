@@ -24,10 +24,10 @@ export default function Footer() {
 
             <div className="pointer-events-none absolute -right-24 bottom-8 h-64 w-64 rounded-full bg-primary-soft/30 blur-[120px]" />
 
-            <div className="relative mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
-                <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+            <div className="relative mx-auto px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
+                <div className="grid gap-9 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
                     {/* Brand section */}
-                    <div>
+                    <div className="lg:col-span-2">
                         <Link
                             href="/"
                             aria-label="Green Blue Nature home"
@@ -70,7 +70,7 @@ export default function Footer() {
 
                     {/* Information section */}
                     <div>
-                        <FooterHeading>Information</FooterHeading>
+                        <FooterHeading>QUICK LINKS</FooterHeading>
 
                         <ul className="mt-5 space-y-3">
                             {footerData.informationLinks.map((link) => (
@@ -81,9 +81,21 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    <div>
+                        <FooterHeading>OUR PRODUCTS</FooterHeading>
+
+                        <ul className="mt-5 space-y-3">
+                            {footerData.productLinks.map((link) => (
+                                <li key={link.label}>
+                                    <FooterNavigationLink link={link} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Contact section */}
                     <div>
-                        <FooterHeading>Contact Us</FooterHeading>
+                        <FooterHeading>CONTACT US</FooterHeading>
 
                         <div className="mt-5 space-y-4">
                             {footerData.contactDetails.map((detail) => (
@@ -111,7 +123,7 @@ export default function Footer() {
                             href="https://alphamedia.lk"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-semibold text-primary transition-opacity duration-300 hover:opacity-70"
+                            className="font-bold transition-opacity duration-300 hover:opacity-70"
                         >
                             Alpha Media
                         </Link>
@@ -148,7 +160,7 @@ type FooterHeadingProps = {
 function FooterHeading({ children }: FooterHeadingProps) {
     return (
         <div>
-            <h3 className="font-extralight text-muted-foreground">
+            <h3 className="font-bold text-muted-foreground">
                 {children}
             </h3>
         </div>
@@ -165,7 +177,7 @@ function FooterNavigationLink({
     return (
         <Link
             href={link.href}
-            className="group inline-flex items-center gap-2 font-bold text-muted-foreground transition-all duration-300 hover:translate-x-1 hover:text-primary text-xs"
+            className="group inline-flex items-center gap-2 text-muted-foreground transition-all duration-300 hover:translate-x-1 hover:text-primary text-xs"
         >
 
 
@@ -187,7 +199,7 @@ function ContactItem({ detail }: ContactItemProps) {
                 {icon}
             </div>
 
-            <div className="text-xs leading-6  text-muted-foreground font-bold">
+            <div className="text-xs leading-6  text-muted-foreground">
                 {detail.values.map((value, index) => (
                     <ContactValue
                         key={`${detail.id}-${value}`}

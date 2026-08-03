@@ -38,12 +38,12 @@ export default function ProductDetailSection({
                 <Icon className="h-6 w-6" />
             </div>
 
-            <h2 className="mt-5 text-2xl font-bold text-foreground">
+            <h2 className="mt-5 text-xl font-bold text-foreground">
                 {title}
             </h2>
 
             {description && (
-                <p className="mt-3 leading-7 text-muted-foreground">
+                <p className="mt-3 text-sm text-muted-foreground">
                     {description}
                 </p>
             )}
@@ -52,7 +52,7 @@ export default function ProductDetailSection({
                 {points.map((point) => (
                     <li
                         key={point.id}
-                        className="flex items-start gap-3 text-sm leading-6 text-foreground sm:text-base"
+                        className="flex items-start gap-3 text-sm text-foreground sm:text-sm"
                     >
                         <span
                             className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${isWarning

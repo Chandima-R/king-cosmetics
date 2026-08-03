@@ -22,7 +22,7 @@ export default function ProductDetails({
     product,
 }: ProductDetailsProps) {
     return (
-        <section className="py-20 sm:py-24">
+        <section className="pb-20 sm:pb-24">
             <div className="container mx-auto px-6">
                 {/* Full description */}
                 <div className="mx-auto max-w-4xl text-center">
@@ -30,7 +30,7 @@ export default function ProductDetails({
                         Product Information
                     </span>
 
-                    <h2 className="mt-5 text-3xl font-bold text-foreground sm:text-4xl">
+                    <h2 className="mt-5 text-xl font-bold text-foreground sm:text-2xl">
                         Everything You Need to Know
                     </h2>
 
@@ -38,7 +38,7 @@ export default function ProductDetails({
                         {product.fullDescription.map((paragraph, index) => (
                             <p
                                 key={index}
-                                className="text-base leading-8 text-muted-foreground sm:text-lg"
+                                className="text-sm text-muted-foreground sm:text-base"
                             >
                                 {paragraph}
                             </p>
@@ -100,7 +100,7 @@ export default function ProductDetails({
                 </div>
 
                 {/* Small quality strip */}
-                <div className="mt-10 grid gap-4 rounded-[2rem] border border-primary/10 bg-background p-6 sm:grid-cols-3 sm:p-8">
+                {/* <div className="mt-10 grid gap-4 rounded-[2rem] border border-primary/10 bg-background p-6 sm:grid-cols-3 sm:p-8">
                     <div className="flex items-center gap-3">
                         <CircleCheckBig className="h-6 w-6 text-primary" />
 
@@ -124,7 +124,7 @@ export default function ProductDetails({
                             Made with care
                         </p>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );

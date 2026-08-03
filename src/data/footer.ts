@@ -29,6 +29,29 @@ export const footerData: FooterData = {
         },
     ],
 
+    productLinks: [
+        {
+            label: "Home",
+            href: "/",
+        },
+        {
+            label: "About Us",
+            href: "/about",
+        },
+        {
+            label: "Products",
+            href: "/products",
+        },
+        {
+            label: "Request a Quotation",
+            href: "/quotation",
+        },
+        {
+            label: "Contact Us",
+            href: "/contact",
+        },
+    ],
+
     socialLinks: [
         {
             label: "Facebook",

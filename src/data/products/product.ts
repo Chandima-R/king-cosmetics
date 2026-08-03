@@ -17,17 +17,17 @@ export const products: Product[] = [
             },
             {
                 id: 2,
-                src: "/images/products/aloe-face-wash/side.png",
+                src: "/images/products/product1.png",
                 alt: "Aloe Vera Herbal Face Wash side view",
             },
             {
                 id: 3,
-                src: "/images/products/aloe-face-wash/back.png",
+                src: "/images/products/product1.png",
                 alt: "Aloe Vera Herbal Face Wash back view",
             },
             {
                 id: 4,
-                src: "/images/products/aloe-face-wash/ingredients.png",
+                src: "/images/products/product1.png",
                 alt: "Aloe Vera Herbal Face Wash ingredients",
             },
         ],
@@ -481,7 +481,7 @@ export const products: Product[] = [
   images: [
     {
       id: 1,
-      src: "/images/products/herbal-shampoo/front.png",
+      src: "/images/products/product1.png",
       alt: "Herbal Anti Hair Fall Shampoo front view",
     },
     {
@@ -577,7 +577,7 @@ export const products: Product[] = [
   images: [
     {
       id: 1,
-      src: "/images/products/herbal-conditioner/front.png",
+      src: "/images/products/product1.png",
       alt: "Natural Herbal Conditioner front view",
     },
     {
@@ -673,7 +673,7 @@ export const products: Product[] = [
   images: [
     {
       id: 1,
-      src: "/images/products/body-lotion/front.png",
+      src: "/images/products/product1.png",
       alt: "Aloe Moisturizing Body Lotion front view",
     },
     {

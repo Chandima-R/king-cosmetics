@@ -49,11 +49,11 @@ export default function ProductOverview({
                 )}
             </div>
 
-            <h1 className="mt-6 text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h1 className="mt-6 text-3xl font-bold leading-tight text-foreground sm:text-3xl lg:text-4xl">
                 {product.name}
             </h1>
 
-            <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg">
+            <p className="mt-5 text-base text-muted-foreground sm:text-base">
                 {product.shortDescription}
             </p>
 
@@ -63,7 +63,7 @@ export default function ProductOverview({
                         Price
                     </p>
 
-                    <p className="mt-1 text-3xl font-bold text-primary">
+                    <p className="mt-1 text-lg font-bold text-primary">
                         {formattedPrice}
                     </p>
                 </div>
@@ -81,7 +81,7 @@ export default function ProductOverview({
                 </div>
             </div>
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            {/* <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 <div className="flex items-center gap-3 rounded-2xl bg-muted/50 p-4">
                     <ShieldCheck className="h-5 w-5 shrink-0 text-primary" />
 
@@ -105,7 +105,7 @@ export default function ProductOverview({
                         Islandwide Delivery
                     </span>
                 </div>
-            </div>
+            </div> */}
 
             <Link
                 href={whatsappUrl}
