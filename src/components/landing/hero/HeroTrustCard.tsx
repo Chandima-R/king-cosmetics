@@ -46,7 +46,7 @@ export default function HeroTrustCard() {
                 border border-border-light
                 bg-white/95
                 px-4 py-4
-                shadow-[0_18px_50px_rgba(49,95,24,0.12)]
+                
                 backdrop-blur-xl
                 sm:px-6
                 lg:px-8

@@ -9,11 +9,11 @@ export default function FeaturedProducts() {
         .slice(0, 4);
 
     return (
-        <section className="relative overflow-hidden bg-background py-20 md:py-24">
+        <section className="relative overflow-hidden bg-background">
             {/* Decorative Background */}
-            <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-light/20 blur-3xl" />
+            {/* <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-light/20 blur-3xl" />
 
-            <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 translate-x-1/3 rounded-full bg-primary-soft blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 translate-x-1/3 rounded-full bg-primary-soft blur-3xl" /> */}
 
             <div className="container relative mx-auto px-5 sm:px-6 lg:px-8">
                 {/* Section Heading */}

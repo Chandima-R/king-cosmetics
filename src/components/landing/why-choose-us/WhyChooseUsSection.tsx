@@ -14,7 +14,7 @@ export default function WhyChooseUsSection() {
     return (
         <section className="relative overflow-hidden bg-white">
             {/* Background decorations */}
-            <div
+            {/* <div
                 aria-hidden="true"
                 className="
                     absolute -left-28 top-24
@@ -23,9 +23,9 @@ export default function WhyChooseUsSection() {
                     bg-primary-light/10
                     blur-3xl
                     "
-            />
+            /> */}
 
-            <div
+            {/* <div
                 aria-hidden="true"
                 className="
                     absolute -right-24 bottom-10
@@ -34,7 +34,7 @@ export default function WhyChooseUsSection() {
                     bg-primary/8
                     blur-3xl
                     "
-            />
+            /> */}
 
             <div className="site-container relative z-10">
                 <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -171,8 +171,8 @@ export default function WhyChooseUsSection() {
                                     mt-5
                                     text-3xl font-bold leading-tight
                                     text-heading
-                                    sm:text-4xl
-                                    lg:text-5xl
+                                    sm:text-xl
+                                    lg:text-4xl
                                     "
                             >
                                 Natural Care You Can
@@ -181,7 +181,7 @@ export default function WhyChooseUsSection() {
                                 </span>
                             </h2>
 
-                            <p className="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
+                            <p className="mt-5 max-w-xl text-base text-muted sm:text-base">
                                 Green Blue Nature brings together trusted ingredients,
                                 thoughtful formulas, and reliable service to give you a
                                 simple and satisfying beauty and wellness experience.
@@ -189,7 +189,7 @@ export default function WhyChooseUsSection() {
                         </div>
 
                         {/* Features grid */}
-                        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                        <div className="mt-10 grid gap-4 sm:grid-cols-2 pb-10">
                             {whyChooseUsItems.map((item) => {
                                 const Icon = item.icon;
 
@@ -225,11 +225,11 @@ export default function WhyChooseUsSection() {
                                             </div>
 
                                             <div>
-                                                <h3 className="text-base font-bold text-heading">
+                                                <h3 className="text-sm font-bold text-heading">
                                                     {item.title}
                                                 </h3>
 
-                                                <p className="mt-2 text-sm leading-6 text-muted">
+                                                <p className="mt-2 text-xs leading-6 text-muted">
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -240,46 +240,7 @@ export default function WhyChooseUsSection() {
                         </div>
 
                         {/* Bottom trust line */}
-                        <div
-                            className="
-                                mt-8
-                                flex flex-col gap-3
-                                rounded-2xl
-                                border border-primary-light/20
-                                bg-primary-soft/70
-                                px-5 py-4
-                                sm:flex-row
-                                sm:items-center
-                                sm:justify-between
-                            "
-                        >
-                            <div className="flex items-center gap-3">
-                                <div
-                                    className="
-                                        flex size-10 items-center justify-center
-                                        rounded-full
-                                        bg-primary
-                                        text-white
-                                    "
-                                >
-                                    <BadgeCheck size={20} />
-                                </div>
 
-                                <div>
-                                    <p className="font-bold text-heading">
-                                        Made in Sri Lanka
-                                    </p>
-
-                                    <p className="text-sm text-muted">
-                                        Natural products created with care.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <p className="text-sm font-semibold text-primary">
-                                Pure • Safe • Trusted
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

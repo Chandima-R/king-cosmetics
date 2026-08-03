@@ -6,7 +6,7 @@ import ContactCard from "./ContactCard";
 
 export default function ContactInformation() {
     return (
-        <section className="relative overflow-hidden py-24">
+        <section className="relative overflow-hidden">
 
             <div className="container relative mx-auto px-6">
 
