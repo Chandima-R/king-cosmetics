@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShoppingCart } from "lucide-react";
 
 import type { FeaturedProduct } from "@/types/landing/featured-product";
 
@@ -10,11 +10,11 @@ type ProductCardProps = {
 
 export default function FeaturedProductCard({ product }: ProductCardProps) {
     return (
-        <article className="group flex h-full flex-col overflow-hidden">
+        <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border">
             {/* Product Image */}
             <Link
                 href={`/products/${product.slug}`}
-                className="relative block aspect-[4/4.3] overflow-hidden "
+                className="relative block aspect-4/4 overflow-hidden "
                 aria-label={`View ${product.name}`}
             >
                 <Image
@@ -32,25 +32,58 @@ export default function FeaturedProductCard({ product }: ProductCardProps) {
             </Link>
 
             {/* Content */}
-            <div className="flex flex-1 flex-col px-6">
+            <div className="flex flex-1 flex-col px-6 py-3">
                 <Link href={`/products/${product.slug}`}>
-                    <h3 className="text-xl font-bold leading-snug text-foreground transition-colors duration-300 hover:text-primary">
+                    <h3 className="text-lg font-bold leading-snug text-foreground transition-colors duration-300 hover:text-primary">
                         {product.name}
                     </h3>
                 </Link>
 
-                <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted-foreground">
+                <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">
                     {product.shortDescription}
                 </p>
 
-                <Link
-                    href={`/products/${product.slug}`}
-                    className="group/button mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary"
-                >
-                    View Details
+                <div className="flex justify-between">
 
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-                </Link>
+                    <Link
+                        href={`/products/${product.slug}`}
+                        className="group/button mt-6 inline-flex w-fit items-center gap-2 text-base font-bold"
+                    >
+                        {product.price}
+
+                    </Link>
+
+                    <button
+                        type="button"
+                        aria-label="Add to cart"
+                        className="
+                            group
+                            flex
+                            h-11
+                            w-11
+                            items-center
+                            justify-center
+                            rounded-full
+                            bg-primary
+                            text-white
+                            shadow-md
+                            transition-all
+                            duration-300
+                            hover:-translate-y-1
+                            hover:bg-primary-hover
+                            hover:shadow-lg
+                        "
+                    >
+                        <ShoppingCart
+                            size={20}
+                            className="transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </button>
+
+
+                </div>
+
+
             </div>
         </article>
     );

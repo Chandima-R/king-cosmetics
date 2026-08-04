@@ -67,6 +67,9 @@
   --shadow-sm: 0 2px 10px rgb(45 80 25 / 0.06);
   --shadow-md: 0 8px 30px rgb(45 80 25 / 0.09);
   --shadow-lg: 0 18px 50px rgb(45 80 25 / 0.13);
+
+  --header-total-height: 114px;
+  --hero-header-height: 114px;
 }
 
 /* =================================================

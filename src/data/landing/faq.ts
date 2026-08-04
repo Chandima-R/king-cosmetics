@@ -1,7 +1,7 @@
 import type { FAQSectionData } from "@/types/landing/faq";
 
 export const faqSectionData: FAQSectionData = {
-    badge: "Frequently Asked Questions",
+    badge: "FAQ",
 
     title: "Everything You Need to Know",
 

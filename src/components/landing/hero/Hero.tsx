@@ -1,197 +1,287 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 
 import HeroTrustCard from "./HeroTrustCard";
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0">
+        <section
+            className="
+                relative
+                isolate
+                overflow-hidden
+                bg-white
+               min-h-[calc(100svh-var(--hero-header-height))]
+            "
+        >
+            {/* Background image */}
+            <div className="absolute inset-0 -z-20">
                 <Image
-                    src="/images/hero/king-cosmetics-gero-banner2.png"
-                    alt="Green Blue Nature"
+                    src="/images/hero/hero5.png"
+                    alt="Green Blue Nature herbal beauty products"
                     fill
                     priority
                     sizes="100vw"
-                    className="object-cover object-right"
+                    className="
+                        object-cover
+                        object-[65%_center]
+                        sm:object-[68%_center]
+                        lg:object-center
+                        xl:object-right
+                    "
                 />
-
-                {/* Light Overlay */}
-
-
-                {/* Bottom Fade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
             </div>
 
-            {/* Decorative Blur */}
-            <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary-soft/40 blur-[120px]" />
+            {/* Readability overlay */}
 
-            <div className="absolute right-0 bottom-10 h-80 w-80 rounded-full bg-primary-light/20 blur-[130px]" />
 
-            {/* Hero Content */}
-            <div className="site-container relative z-20">
-                <div className="flex min-h-[620px] items-center py-16 lg:min-h-[720px]">
+            {/* Decorative glow */}
+            <div
+                aria-hidden="true"
+                className="
+                    pointer-events-none
+                    absolute
+                    -left-24
+                    top-10
+                    -z-10
+                    h-64
+                    w-64
+                    rounded-full
+                    bg-primary-soft/40
+                    blur-[110px]
+                    sm:h-72
+                    sm:w-72
+                "
+            />
 
-                    <div className="max-w-2xl">
+            <div
+                aria-hidden="true"
+                className="
+                    pointer-events-none
+                    absolute
+                    -right-20
+                    bottom-10
+                    -z-10
+                    h-72
+                    w-72
+                    rounded-full
+                    bg-primary-light/20
+                    blur-[120px]
+                    lg:h-80
+                    lg:w-80
+                "
+            />
 
-                        {/* Badge */}
+            {/* Hero content */}
+            <div
+                className="
+                    site-container
+                    relative
+                    z-10
+                    flex
+                    min-h-[calc(100svh-var(--hero-header-height))]
+                    items-center
+                    pb-32
+                    pt-10
+                    sm:pb-36
+                    sm:pt-12
+                    lg:pb-32
+                    lg:pt-10
+                "
+            >
+                <div className="w-full max-w-xl sm:max-w-2xl">
+                    {/* Badge */}
+                    <div
+                        className="
+                            hero-fade-up
+                            hero-delay-1
+                            mb-4
+                            inline-flex
+                            items-center
+                            gap-2
+                            rounded-full
+                            border
+                            border-primary/10
+                            bg-white/90
+                            px-3.5
+                            py-2
+                            text-xs
+                            font-semibold
+                            text-primary
+                            shadow-md
+                            backdrop-blur-md
+                            sm:mb-5
+                            sm:px-4
+                            sm:text-sm
+                        "
+                    >
+                        <Leaf className="h-4 w-4" />
 
-                        <p
+                        <span>100% Natural Herbal Products</span>
+                    </div>
+
+                    {/* Heading */}
+                    <h1
+                        className="
+                            text-[42px]
+                            font-bold
+                            leading-[0.98]
+                            tracking-[-0.04em]
+                            text-heading
+                            min-[380px]:text-5xl
+                            sm:text-6xl
+                            lg:text-[64px]
+                            xl:text-7xl
+                        "
+                    >
+                        <span className="hero-heading-line hero-delay-2">
+                            Pure.
+                        </span>
+
+                        <span className="hero-heading-line hero-delay-3">
+                            Natural.
+                        </span>
+
+                        <span
                             className="
-                                hero-fade-up
-                                hero-delay-1
-                                mb-5
+                                hero-heading-line
+                                hero-delay-4
+                                text-primary-light
+                            "
+                        >
+                            Made for You.
+                        </span>
+                    </h1>
+
+                    {/* Description */}
+                    <p
+                        className="
+                            hero-fade-up
+                            hero-delay-5
+                            mt-5
+                            max-w-lg
+                            text-black
+                            text-sm
+                            font-medium
+                            leading-7
+                            text-accent
+                            sm:mt-6
+                            sm:text-base
+                            sm:leading-8
+                            lg:max-w-xl
+                        "
+                    >
+                        Discover premium herbal hair care and beauty products
+                        made with carefully selected natural ingredients for
+                        healthy, beautiful skin and hair.
+                    </p>
+
+                    {/* Buttons */}
+                    <div
+                        className="
+                            hero-fade-up
+                            hero-delay-6
+                            mt-7
+                            flex
+                            flex-wrap
+                            items-center
+                            gap-3
+                            sm:mt-9
+                            sm:gap-4
+                        "
+                    >
+                        <Link
+                            href="/products"
+                            className="
+                                group
                                 inline-flex
+                                min-h-11
                                 items-center
+                                justify-center
+                                gap-2
+                                rounded-full
+                                bg-primary
+                                px-6
+                                py-3
+                                text-sm
+                                font-semibold
+                                text-white
+                                shadow-lg
+                                transition-all
+                                duration-300
+                                hover:-translate-y-0.5
+                                hover:bg-primary-hover
+                                hover:shadow-xl
+                                focus-visible:outline-none
+                                focus-visible:ring-2
+                                focus-visible:ring-primary
+                                focus-visible:ring-offset-2
+                                sm:px-8
+                            "
+                        >
+                            Shop Now
+
+                            <ArrowRight
+                                className="
+                                    h-4
+                                    w-4
+                                    transition-transform
+                                    duration-300
+                                    group-hover:translate-x-1
+                                "
+                            />
+                        </Link>
+
+                        <Link
+                            href="/contact"
+                            className="
+                                inline-flex
+                                min-h-11
+                                items-center
+                                justify-center
                                 rounded-full
                                 border
-                                border-primary/10
+                                border-primary/20
                                 bg-white/90
-                                px-4
-                                py-2
+                                px-6
+                                py-3
                                 text-sm
                                 font-semibold
                                 text-primary
-                                shadow-lg
-                                backdrop-blur-md
+                                shadow-md
+                                backdrop-blur-sm
+                                transition-all
+                                duration-300
+                                hover:-translate-y-0.5
+                                hover:border-primary
+                                hover:bg-primary-soft
+                                hover:shadow-lg
+                                focus-visible:outline-none
+                                focus-visible:ring-2
+                                focus-visible:ring-primary
+                                focus-visible:ring-offset-2
+                                sm:px-8
                             "
                         >
-                            <span className="mr-2">🌿</span>
-
-                            100% Natural Herbal Products
-
-                        </p>
-
-                        {/* Heading */}
-
-                        <h1
-                            className="
-                                text-5xl
-                                font-bold
-                                leading-[1.05]
-                                tracking-tight
-                                text-heading
-                                sm:text-6xl
-                                lg:text-7xl
-                            "
-                        >
-                            <span className="hero-heading-line hero-delay-2">
-                                Pure.
-                            </span>
-
-                            <span className="hero-heading-line hero-delay-3">
-                                Natural.
-                            </span>
-
-                            <span
-                                className="
-                                    hero-heading-line
-                                    hero-delay-4
-                                    text-primary-light
-                                "
-                            >
-                                Made for You.
-                            </span>
-                        </h1>
-
-                        {/* Description */}
-
-                        <p
-                            className="
-                                hero-fade-up hero-delay-5
-                                mx-auto mt-6 max-w-xl
-                                text-base 
-                                font-semibold
-                                lg:mx-0
-                            "
-                        >
-                            Discover premium herbal hair care and beauty products made
-                            with carefully selected natural ingredients for healthy,
-                            beautiful skin and hair.
-                        </p>
-
-                        {/* Buttons */}
-
-                        <div
-                            className="
-                                hero-fade-up
-                                hero-delay-6
-                                mt-10
-                                flex
-                                flex-wrap
-                                gap-4
-                            "
-                        >
-                            <Link
-                                href="/products"
-                                className="
-                                    group
-                                    inline-flex
-                                    items-center
-                                    gap-2
-                                    rounded-full
-                                    bg-primary
-                                    px-8
-                                    py-3
-                                    text-sm
-                                    font-semibold
-                                    text-white
-                                    shadow-lg
-                                    transition-all
-                                    duration-300
-                                    hover:-translate-y-1
-                                    hover:bg-primary-hover
-                                    hover:shadow-xl
-                                "
-                            >
-                                Shop Now
-
-                                <ArrowRight
-                                    size={18}
-                                    className="
-                                        transition-transform
-                                        duration-300
-                                        group-hover:translate-x-1
-                                    "
-                                />
-                            </Link>
-
-                            <Link
-                                href="/contact"
-                                className="
-                                    inline-flex
-                                    items-center
-                                    rounded-full
-                                    border
-                                    border-primary/20
-                                    bg-white
-                                    px-8
-                                    py-3
-                                    text-sm
-                                    font-semibold
-                                    text-primary
-                                    shadow-md
-                                    transition-all
-                                    duration-300
-                                    hover:-translate-y-1
-                                    hover:border-primary
-                                    hover:bg-primary-soft
-                                "
-                            >
-                                Contact Us
-                            </Link>
-                        </div>
-
+                            Contact Us
+                        </Link>
                     </div>
-
                 </div>
             </div>
 
-            {/* Trust Card */}
-
-            <div className="relative z-30 -mt-10 pb-8 lg:-mt-12">
+            {/* Trust card */}
+            <div
+                className="
+                    absolute
+                    bottom-4
+                    left-0
+                    right-0
+                    z-20
+                    sm:bottom-5
+                    lg:bottom-6
+                "
+            >
                 <div className="site-container">
                     <HeroTrustCard />
                 </div>

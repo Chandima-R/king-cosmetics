@@ -6,6 +6,7 @@ export const products: FeaturedProduct[] = [
     name: "Aloe Vera Face Wash",
     slug: "aloe-vera-face-wash",
     category: "Skin Care",
+    price:"Rs. 2300.00",
     shortDescription:
       "Gentle cleansing with natural aloe vera extract.",
     image: "/images/products/product1.png",
@@ -16,6 +17,7 @@ export const products: FeaturedProduct[] = [
     name: "Herbal Shampoo",
     slug: "herbal-shampoo",
     category: "Hair Care",
+    price:"Rs. 2300.00",
     shortDescription:
       "Strengthens hair using herbal ingredients.",
     image: "/images/products/product1.png",
@@ -26,6 +28,7 @@ export const products: FeaturedProduct[] = [
     name: "Body Lotion",
     slug: "body-lotion",
     category: "Body Care",
+    price:"Rs. 2300.00",
     shortDescription:
       "Deep hydration for healthy glowing skin.",
     image: "/images/products/product1.png",
@@ -36,6 +39,7 @@ export const products: FeaturedProduct[] = [
     name: "Essential Oil",
     slug: "essential-oil",
     category: "Wellness",
+    price:"Rs. 2300.00",
     shortDescription:
       "Pure natural essential oil for relaxation.",
     image: "/images/products/product1.png",
