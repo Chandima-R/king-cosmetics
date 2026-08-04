@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ShoppingCart } from "lucide-react";
 
 import type { Product } from "@/types/products/product";
 
@@ -28,7 +28,7 @@ export default function ProductCard({
         product.images?.[0]?.alt ?? `${product.name} product image`;
 
     return (
-        <article className="group">
+        <article className="group rounded-3xl border border-border">
             <Link
                 href={productUrl}
                 aria-label={`View details of ${product.name}`}
@@ -43,15 +43,35 @@ export default function ProductCard({
                         {product.category}
                     </span>
 
-                    {/* Availability badge */}
-                    <span
-                        className={`absolute right-4 top-4 z-20 rounded-full px-3 py-2 text-xs font-semibold shadow-sm backdrop-blur-md ${product.inStock
-                            ? "bg-emerald-50/90 text-emerald-700"
-                            : "bg-red-50/90 text-red-600"
-                            }`}
+                    <button
+                        type="button"
+                        aria-label="Add to cart"
+                        className="
+                            absolute right-4 top-4 z-20
+                            group
+                            flex
+                            h-11
+                            w-11
+                            items-center
+                            justify-center
+                            rounded-full
+                            bg-white
+                            text-primary
+                            shadow-md
+                            transition-all
+                            duration-300
+                            hover:-translate-y-1
+                            hover:bg-primary-hover
+                            hover:shadow-lg
+                        "
                     >
-                        {product.inStock ? "Available" : "Unavailable"}
-                    </span>
+                        <ShoppingCart
+                            size={20}
+                            className="transition-transform duration-300 group-hover:scale-110"
+                        />
+                    </button>
+
+
 
                     <Image
                         src={mainImage}
@@ -61,40 +81,27 @@ export default function ProductCard({
                         className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                     />
 
-                    {/* Hover button */}
-                    <div className="absolute bottom-4 left-4 right-4 z-20 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <div className="flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg">
-                            View Details
-                            <ArrowUpRight className="h-4 w-4" />
-                        </div>
-                    </div>
+
                 </div>
 
                 {/* Product information */}
-                <div className="px-1 pt-5">
+                <div className="px-6 py-3 pt-5">
                     <div className="flex items-start justify-between gap-4">
                         <div className="min-w-0">
-                            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                                {product.category}
-                            </p>
 
-                            <h3 className="mt-2 line-clamp-2 text-xl font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary">
+                            <h3 className="mt-2 line-clamp-2 text-lg font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary">
                                 {product.name}
                             </h3>
                         </div>
 
-                        <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                     </div>
 
-                    <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">
+                    <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">
                         {product.shortDescription}
                     </p>
 
                     <div className="mt-5 flex items-end justify-between gap-4 border-t border-border pt-4">
                         <div>
-                            <p className="text-xs font-medium text-muted-foreground">
-                                Price
-                            </p>
 
                             <p className="mt-1 text-lg font-bold text-primary">
                                 {formattedPrice}
@@ -102,9 +109,6 @@ export default function ProductCard({
                         </div>
 
                         <div className="text-right">
-                            <p className="text-xs font-medium text-muted-foreground">
-                                Size
-                            </p>
 
                             <p className="mt-1 text-sm font-bold text-foreground">
                                 {product.size}
