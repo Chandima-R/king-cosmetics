@@ -11,12 +11,15 @@ import {
     MessageCircle,
     Phone,
     Search,
+    ShoppingBag,
+    ShoppingCart,
     UserRound,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { navigationItems } from "@/constants/navigation";
 import MobileMenu from "./MobileMenu";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
     const pathname = usePathname();
@@ -24,6 +27,8 @@ export default function Header() {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const { totalItems } = useCart();
 
     /*
      * Shrink the header after scrolling down.
@@ -305,13 +310,28 @@ export default function Header() {
                             <MessageCircle className="h-5 w-5" />
                         </a>
 
-                        <button
+                        {/* <button
                             type="button"
                             aria-label="User account"
                             className="flex size-10 items-center justify-center rounded-full text-body transition-colors hover:bg-primary-soft hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                         >
-                            <UserRound className="h-5 w-5" />
-                        </button>
+                            <ShoppingCart className="h-5 w-5" />
+                        </button> */}
+
+                        <Link
+                            href="/cart"
+                            aria-label={`View cart with ${totalItems} items`}
+                            className="relative flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-primary-soft hover:text-primary"
+                        >
+                            <ShoppingBag className="h-5 w-5" />
+
+                            {totalItems > 0 && (
+                                <span className="absolute -right-1 -top-1 flex min-h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-white">
+                                    {totalItems > 99 ? "99+" : totalItems}
+                                </span>
+                            )}
+                        </Link>
+
                     </div>
 
                     {/* Mobile actions */}

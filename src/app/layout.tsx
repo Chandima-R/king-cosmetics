@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import AppProviders from "@/components/providers/AppProviders";
 
 
 import "./globals.css";
@@ -33,11 +34,14 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} min-h-screen bg-background font-sans text-body antialiased`}
       >
-        <Header />
+        <AppProviders>
+          <Header />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer />
+          <Footer />
+        </AppProviders>
+
       </body>
     </html>
   );

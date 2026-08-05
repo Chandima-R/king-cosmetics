@@ -31,25 +31,22 @@ export const footerData: FooterData = {
 
     productLinks: [
         {
-            label: "Home",
-            href: "/",
+            label: "Hair Care",
+            href: "/hair-care",
         },
         {
-            label: "About Us",
-            href: "/about",
+            label: "Skin Care",
+            href: "/skin-care",
         },
         {
-            label: "Products",
-            href: "/products",
+            label: "Body Care",
+            href: "/body-care",
         },
         {
-            label: "Request a Quotation",
-            href: "/quotation",
+            label: "Herbal Oils",
+            href: "/herbal-oils",
         },
-        {
-            label: "Contact Us",
-            href: "/contact",
-        },
+        
     ],
 
     socialLinks: [
