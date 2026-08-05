@@ -13,8 +13,9 @@ export default function Home() {
     <div>
       <Hero />
       <CompanyIntroduction />
+      <FeaturedProducts />
       <div className="space-y-20 bg-background py-20 md:space-y-32 md:py-32">
-        <FeaturedProducts />
+
         <WhyChooseUsSection />
         <TestimonialsSection />
         {/* <FAQSection /> */}

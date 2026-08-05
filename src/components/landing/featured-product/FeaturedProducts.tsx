@@ -1,21 +1,53 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import FeaturedProductCard from "./FeaturedProductCard";
-import { products } from "@/data/landing/featured-product";
+import { products } from "@/data/products/product";
+import Image from "next/image";
 
 export default function FeaturedProducts() {
     const featuredProducts = products
-        .filter((product) => product.featured)
+        .filter((product) => product.featured === true)
         .slice(0, 4);
 
     return (
-        <section className="relative overflow-hidden bg-background">
-            {/* Decorative Background */}
-            {/* <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-light/20 blur-3xl" />
+        <section className="relative overflow-hidden">
 
-            <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 translate-x-1/3 rounded-full bg-primary-soft blur-3xl" /> */}
+            <div className="relative -mt-24 flex h-fit items-end justify-center sm:-mt-28 lg:-mt-4">
 
-            <div className="container relative mx-auto px-5 sm:px-6 lg:px-8">
+                {/* Image */}
+                <Image
+                    src="/images/background/bg1.png"
+                    alt="Natural Aloe Vera"
+                    width={600}
+                    height={600}
+                    className="
+                            relative
+                            z-10
+                            -translate-y-4
+                            h-100
+                            w-auto
+                            object-contain
+                            drop-shadow-[0_20px_35px_rgba(58,112,33,0.18)]
+                            transition-transform
+                            duration-500
+                            hover:scale-105
+                            lg:h-70
+            "
+                />
+            </div>
+
+            <div className="container relative mx-auto -mt-4 px-5 sm:px-6 lg:px-8">
+
+                {/* Decorative leaves */}
+
+                <div className="absolute left-0 top-0 h-full w-56 bg-gradient-to-r from-primary-soft/70 to-transparent" />
+
+                <div className="absolute right-0 top-0 h-full w-56 bg-gradient-to-l from-primary-soft/70 to-transparent" />
+            </div>
+
+            <div className="container relative mx-auto -mt-4 px-5 sm:px-6 lg:px-8">
+
+
                 {/* Section Heading */}
                 <div className="mx-auto max-w-3xl text-center">
                     <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
@@ -23,12 +55,17 @@ export default function FeaturedProducts() {
                         Featured Products
                     </span>
 
-                    <h2 className="mt-6 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
+                    <h2 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
                         Discover Our Most Loved
-                        <span className="block text-primary">Natural Products</span>
+
+                        <span className="mt-2 block text-primary">
+                            Natural Products
+                        </span>
                     </h2>
 
-                    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                    <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-primary/30" />
+
+                    <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
                         Explore a selection of our featured beauty and personal care
                         products, thoughtfully chosen to support your everyday routine.
                     </p>

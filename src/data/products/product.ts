@@ -180,7 +180,7 @@ export const products: Product[] = [
             },
         ],
 
-        featured: true,
+        featured: false,
         inStock: true,
     },
     {

@@ -87,9 +87,9 @@ export default async function ProductPage({
             </div>
 
             {/* Product overview */}
-            <section className="py-12 sm:py-16 lg:py-20">
+            <section className="py-12 sm:py-16 lg:py-12">
                 <div className="container mx-auto px-6">
-                    <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+                    <div className="grid gap-10 lg:grid-cols-2">
                         <ProductGallery
                             images={product.images}
                             productName={product.name}

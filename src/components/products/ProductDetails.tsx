@@ -22,7 +22,7 @@ export default function ProductDetails({
     product,
 }: ProductDetailsProps) {
     return (
-        <section className="pb-20 sm:pb-24">
+        <section className="pb-20 sm:pb-24 mt-5">
             <div className="container mx-auto px-6">
                 {/* Full description */}
                 <div className="mx-auto max-w-4xl text-center">

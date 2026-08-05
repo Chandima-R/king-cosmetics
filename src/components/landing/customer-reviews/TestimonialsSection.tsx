@@ -1,109 +1,121 @@
 import Image from "next/image";
-import { Quote, Star } from "lucide-react";
+import { Quote, Sparkles, Star } from "lucide-react";
 
 import { testimonials } from "@/data/landing/testimonials";
 
 export default function TestimonialsSection() {
     return (
-        <section className="relative overflow-hidden">
-            {/* Decorative background glows */}
-            {/* <div
-                aria-hidden="true"
-                className="bsolute -left-24 top-10 h-72 w-72 rounded-full bg-primary-light/10 blur-3xl"
-            />
+        <section className="relative overflow-hidden py-24">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+                <Image
+                    src="/images/testimonials/testimonial-background.png"
+                    alt="Natural ingredients background"
+                    fill
+                    priority={false}
+                    className="object-cover"
+                />
 
-            <div
-                aria-hidden="true"
-                className=" absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
-            /> */}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8BB36A]/45 to-white/10" />
+            </div>
+
+            {/* Decorative Blur */}
+            <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-primary-light/20 blur-[140px]" />
+
+            <div className="absolute right-0 bottom-0 h-72 w-72 rounded-full bg-primary-light/20 blur-[140px]" />
 
             <div className="site-container relative z-10">
-                {/* Section heading */}
+                {/* Heading */}
+
                 <div className="mx-auto max-w-2xl text-center">
                     <p
-                        className="inline-flex items-center gap-2
-                                    rounded-full
-                                    bg-primary-soft
-                                    px-4 py-2
-                                    text-sm font-semibold
-                                    text-primary"
+                        className="
+                            inline-flex
+                            items-center
+                            rounded-full
+                            border border-white/20
+                            bg-white
+                            px-5
+                            py-2
+                            text-sm
+                            font-semibold
+                            text-primary
+                            
+                        "
                     >
-                        Customer Reviews
+                        <Sparkles className="h-4 w-4" />
+                        &nbsp;Customer Reviews
                     </p>
 
-                    <h2
-                        className="
-                                    mt-5
-                                    text-3xl font-bold leading-tight
-                                    text-heading
-                                    sm:text-xl
-                                    lg:text-4xl
-                                    
-                                    "
-                    >
-                        Loved by Our&nbsp;
-                        <span className="text-primary-light inline-block">
+                    <h2 className="mt-6 text-4xl font-bold text-white lg:text-5xl">
+                        Loved by Our{" "}
+                        <span className="text-primary">
                             Customers
                         </span>
                     </h2>
 
-                    {/* <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl lg:text-5xl">
-                        Loved by Our Customers
-                    </h2> */}
-
-                    <p className="mt-4 text-base leading-7 text-muted sm:text-lg">
-                        Real experiences from customers who trust Green Blue Nature
-                        for their daily beauty and wellness care.
+                    <p className="mt-5 text-lg leading-8 ">
+                        Real experiences from customers who trust
+                        Green Blue Nature for their daily beauty
+                        and wellness care.
                     </p>
                 </div>
 
-                {/* Testimonial cards */}
-                <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 pb-10">
+                {/* Cards */}
+
+                <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
                     {testimonials.map((testimonial) => (
                         <article
                             key={testimonial.id}
                             className="
                                 group
                                 relative
-                                flex h-full flex-col
-                                rounded-3xl
-                                border border-primary-light
-                                bg-white/95
-                                p-6
-                                shadow-[0_16px_45px_rgba(49,95,24,0.08)]
-                                backdrop-blur-sm
-                                transition-all duration-300
+                                overflow-hidden
+                                rounded-[28px]
+                                border
+                                border-white/15
+                                bg-white/10
+                                p-7
+                                backdrop-blur-xl
+                                transition-all
+                                duration-500
                                 hover:-translate-y-2
-                                hover:border-primary-light/40
-                                hover:shadow-[0_22px_55px_rgba(49,95,24,0.14)]
-                                sm:p-7
+                                hover:bg-white/15
+                                hover:shadow-[0_25px_60px_rgba(0,0,0,0.18)]
                             "
                         >
-                            {/* Quote icon */}
+                            {/* Quote */}
+
                             <div
                                 className="
-                                    absolute right-6 top-6
-                                    flex size-11 items-center justify-center
+                                    absolute
+                                    right-6
+                                    top-6
+                                    flex
+                                    h-11
+                                    w-11
+                                    items-center
+                                    justify-center
                                     rounded-full
-                                    bg-primary-soft
-                                    text-primary
-                                    transition-transform duration-300
+                                    bg-primary-light
+                                    text-white
+                                    backdrop-blur-md
+                                    transition-transform
+                                    duration-300
                                     group-hover:rotate-6
-                                    "
+                                "
                             >
-                                <Quote size={20} fill="currentColor" />
+                                <Quote
+                                    size={18}
+                                    fill="currentColor"
+                                />
                             </div>
 
-                            {/* Customer information */}
-                            <div className="flex items-center gap-4 pr-12">
-                                <div
-                                    className="
-                                        relative size-16 shrink-0
-                                        overflow-hidden
-                                        rounded-full
-                                        border-4 border-primary-soft
-                                    "
-                                >
+                            {/* Customer */}
+
+                            <div className="flex items-center gap-4 pr-10">
+                                <div className="relative h-16 w-16 overflow-hidden rounded-full">
                                     <Image
                                         src={testimonial.image}
                                         alt={testimonial.name}
@@ -114,43 +126,45 @@ export default function TestimonialsSection() {
                                 </div>
 
                                 <div>
-                                    <h3 className="text-base font-bold text-heading">
+                                    <h3 className="text-lg font-bold text-primary">
                                         {testimonial.name}
                                     </h3>
 
-                                    <p className="mt-1 text-sm text-muted">
-                                        {testimonial.city}, Sri Lanka
+                                    <p className="text-sm ">
+                                        {testimonial.city},
+                                        Sri Lanka
                                     </p>
                                 </div>
                             </div>
 
                             {/* Stars */}
-                            <div
-                                className="mt-6 flex items-center gap-1"
-                                aria-label={`${testimonial.rating} out of 5 stars`}
-                            >
-                                {Array.from({ length: 5 }).map((_, index) => (
+
+                            <div className="mt-6 flex items-center gap-1">
+                                {Array.from({
+                                    length: 5,
+                                }).map((_, index) => (
                                     <Star
                                         key={index}
                                         size={18}
                                         className={
-                                            index < testimonial.rating
-                                                ? "fill-gold text-gold"
-                                                : "fill-border-light text-border-light"
+                                            index <
+                                                testimonial.rating
+                                                ? "fill-yellow-400 text-yellow-400"
+                                                : "fill-white/20 text-white/20"
                                         }
                                     />
                                 ))}
 
-                                <span className="ml-2 text-sm font-semibold text-body">
+                                <span className="ml-2 text-sm font-semibold">
                                     {testimonial.rating}.0
                                 </span>
                             </div>
 
                             {/* Review */}
-                            <p className="mt-5 flex-1 text-sm leading-7 text-body">
+
+                            <p className="mt-5 text-sm leading-7 font-semibold">
                                 “{testimonial.review}”
                             </p>
-
                         </article>
                     ))}
                 </div>
