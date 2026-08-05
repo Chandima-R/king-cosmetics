@@ -12,8 +12,6 @@ import {
     Phone,
     Search,
     ShoppingBag,
-    ShoppingCart,
-    UserRound,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -292,13 +290,15 @@ export default function Header() {
                             </span>
                         </a>
 
-                        <button
-                            type="button"
+
+                        <Link
+                            href="/products"
                             aria-label="Search"
                             className="flex size-10 items-center justify-center rounded-full text-body transition-colors hover:bg-primary-soft hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+
                         >
                             <Search className="h-[19px] w-[19px]" />
-                        </button>
+                        </Link>
 
                         <a
                             href="https://wa.me/94771234567"

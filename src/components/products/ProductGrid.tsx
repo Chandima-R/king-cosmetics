@@ -1,18 +1,26 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from "react";
 import {
     usePathname,
     useRouter,
     useSearchParams,
 } from "next/navigation";
-import { PackageSearch, RotateCcw } from "lucide-react";
+import {
+    PackageSearch,
+    RotateCcw,
+} from "lucide-react";
 
+import SearchBar from "@/components/products/SearchBar";
+import CategoryFilter from "@/components/products/CategoryFilter";
 import type { Product } from "@/types/products/product";
 
 import ProductCard from "./ProductCard";
-import SearchBar from "@/components/products/SearchBar";
-import CategoryFilter from "@/components/products/CategoryFilter";
 
 type ProductsGridProps = {
     products: Product[];
@@ -27,48 +35,66 @@ export default function ProductsGrid({
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
-    const searchFromUrl = searchParams.get("search") ?? "";
+    const searchFromUrl =
+        searchParams.get("search") ?? "";
+
     const categoryFromUrl =
         searchParams.get("category") ?? ALL_CATEGORY;
 
-    const [searchQuery, setSearchQuery] = useState(searchFromUrl);
-    const [selectedCategory, setSelectedCategory] = useState(
-        categoryFromUrl,
-    );
+    const [searchQuery, setSearchQuery] =
+        useState(searchFromUrl);
+
+    const [
+        selectedCategory,
+        setSelectedCategory,
+    ] = useState(categoryFromUrl);
 
     const categories = useMemo(() => {
         const productCategories = products
-            .map((product) => product.category.trim())
+            .map((product) =>
+                product.category.trim(),
+            )
             .filter(Boolean);
 
         return [
             ALL_CATEGORY,
-            ...Array.from(new Set(productCategories)).sort((a, b) =>
+            ...Array.from(
+                new Set(productCategories),
+            ).sort((a, b) =>
                 a.localeCompare(b),
             ),
         ];
     }, [products]);
 
-
     useEffect(() => {
         setSearchQuery(searchFromUrl);
+
         setSelectedCategory(
             categories.includes(categoryFromUrl)
                 ? categoryFromUrl
                 : ALL_CATEGORY,
         );
-    }, [searchFromUrl, categoryFromUrl, categories]);
+    }, [
+        searchFromUrl,
+        categoryFromUrl,
+        categories,
+    ]);
 
     const updateUrl = useCallback(
-        (search: string, category: string) => {
+        (
+            search: string,
+            category: string,
+        ) => {
             const params = new URLSearchParams(
                 searchParams.toString(),
             );
 
-            const trimmedSearch = search.trim();
-
-            if (trimmedSearch) {
-                params.set("search", trimmedSearch);
+            /*
+             * Check with trim(), but save the original
+             * value so spaces can still be typed.
+             */
+            if (search.trim()) {
+                params.set("search", search);
             } else {
                 params.delete("search");
             }
@@ -82,28 +108,47 @@ export default function ProductsGrid({
             const queryString = params.toString();
 
             router.replace(
-                queryString ? `${pathname}?${queryString}` : pathname,
+                queryString
+                    ? `${pathname}?${queryString}`
+                    : pathname,
                 {
                     scroll: false,
                 },
             );
         },
-        [pathname, router, searchParams],
+        [
+            pathname,
+            router,
+            searchParams,
+        ],
     );
 
-    const handleSearchChange = (value: string) => {
+    const handleSearchChange = (
+        value: string,
+    ) => {
         setSearchQuery(value);
-        updateUrl(value, selectedCategory);
+
+        updateUrl(
+            value,
+            selectedCategory,
+        );
     };
 
-    const handleCategoryChange = (category: string) => {
+    const handleCategoryChange = (
+        category: string,
+    ) => {
         setSelectedCategory(category);
-        updateUrl(searchQuery, category);
+
+        updateUrl(
+            searchQuery,
+            category,
+        );
     };
 
     const clearFilters = () => {
         setSearchQuery("");
         setSelectedCategory(ALL_CATEGORY);
+
         router.replace(pathname, {
             scroll: false,
         });
@@ -116,8 +161,10 @@ export default function ProductsGrid({
 
         return products.filter((product) => {
             const matchesCategory =
-                selectedCategory === ALL_CATEGORY ||
-                product.category === selectedCategory;
+                selectedCategory ===
+                ALL_CATEGORY ||
+                product.category ===
+                selectedCategory;
 
             if (!matchesCategory) {
                 return false;
@@ -127,24 +174,35 @@ export default function ProductsGrid({
                 return true;
             }
 
-            const ingredientText = product.ingredients
-                ?.map((ingredient) => ingredient.text)
-                .join(" ")
-                .toLowerCase();
+            const ingredientText =
+                product.ingredients
+                    ?.map(
+                        (ingredient) =>
+                            ingredient.text,
+                    )
+                    .join(" ")
+                    .toLowerCase() ?? "";
 
             const searchableContent = [
                 product.name,
                 product.category,
                 product.shortDescription,
-                ingredientText ?? "",
+                ingredientText,
                 product.size,
             ]
+                .filter(Boolean)
                 .join(" ")
                 .toLowerCase();
 
-            return searchableContent.includes(normalizedSearch);
+            return searchableContent.includes(
+                normalizedSearch,
+            );
         });
-    }, [products, searchQuery, selectedCategory]);
+    }, [
+        products,
+        searchQuery,
+        selectedCategory,
+    ]);
 
     const hasActiveFilters =
         searchQuery.trim() !== "" ||
@@ -163,8 +221,12 @@ export default function ProductsGrid({
 
                             <SearchBar
                                 value={searchQuery}
-                                onChange={handleSearchChange}
-                                resultCount={filteredProducts.length}
+                                onChange={
+                                    handleSearchChange
+                                }
+                                resultCount={
+                                    filteredProducts.length
+                                }
                             />
                         </div>
 
@@ -182,9 +244,15 @@ export default function ProductsGrid({
 
                     <div className="mt-8 border-t border-border pt-7">
                         <CategoryFilter
-                            categories={categories}
-                            selectedCategory={selectedCategory}
-                            onCategoryChange={handleCategoryChange}
+                            categories={
+                                categories
+                            }
+                            selectedCategory={
+                                selectedCategory
+                            }
+                            onCategoryChange={
+                                handleCategoryChange
+                            }
                         />
                     </div>
                 </div>
@@ -197,7 +265,8 @@ export default function ProductsGrid({
                         </p>
 
                         <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
-                            {selectedCategory === ALL_CATEGORY
+                            {selectedCategory ===
+                                ALL_CATEGORY
                                 ? "All Products"
                                 : selectedCategory}
                         </h2>
@@ -209,7 +278,9 @@ export default function ProductsGrid({
                     >
                         Showing{" "}
                         <span className="font-bold text-foreground">
-                            {filteredProducts.length}
+                            {
+                                filteredProducts.length
+                            }
                         </span>{" "}
                         {filteredProducts.length === 1
                             ? "product"
@@ -220,12 +291,14 @@ export default function ProductsGrid({
                 {/* Product grid */}
                 {filteredProducts.length > 0 ? (
                     <div className="mt-10 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {filteredProducts.map((product) => (
-                            <ProductCard
-                                key={product.id}
-                                product={product}
-                            />
-                        ))}
+                        {filteredProducts.map(
+                            (product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                />
+                            ),
+                        )}
                     </div>
                 ) : (
                     <div className="mt-10 flex min-h-[380px] flex-col items-center justify-center rounded-[2rem] border border-dashed border-border bg-primary-soft/30 px-6 py-16 text-center">
@@ -238,8 +311,12 @@ export default function ProductsGrid({
                         </h3>
 
                         <p className="mt-3 max-w-md leading-7 text-muted-foreground">
-                            We could not find a product matching your current search
-                            and category. Try another keyword or clear the filters.
+                            We could not find a
+                            product matching your
+                            current search and
+                            category. Try another
+                            keyword or clear the
+                            filters.
                         </p>
 
                         <button

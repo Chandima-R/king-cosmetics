@@ -6,6 +6,7 @@ import AppProviders from "@/components/providers/AppProviders";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloatingButton from "@/components/WhatsappFlotingIcon";
 
 
 const quicksand = Quicksand({
@@ -40,6 +41,7 @@ export default function RootLayout({
           <main>{children}</main>
 
           <Footer />
+          <WhatsAppFloatingButton />
         </AppProviders>
 
       </body>

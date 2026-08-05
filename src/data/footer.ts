@@ -32,20 +32,17 @@ export const footerData: FooterData = {
     productLinks: [
         {
             label: "Hair Care",
-            href: "/hair-care",
+            href: "/products?category=Hair+Care",
         },
         {
             label: "Skin Care",
-            href: "/skin-care",
+            href: "/products?category=Skin+Care",
         },
         {
             label: "Body Care",
-            href: "/body-care",
+            href: "/products?category=Body+Care",
         },
-        {
-            label: "Herbal Oils",
-            href: "/herbal-oils",
-        },
+        
         
     ],
 

@@ -4,6 +4,7 @@ import { ChevronRight, Home, Leaf } from "lucide-react";
 import { products } from "@/data/products/product";
 import ProductsGrid from "@/components/products/ProductGrid";
 import { Suspense } from "react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "Our Products | Green Blue Nature",
@@ -33,22 +34,40 @@ export default function page() {
                 </div>
             </div>
 
-            <section className="relative overflow-hidden bg-primary-soft/50 py-16 sm:py-20 lg:py-24">
-                <div className="pointer-events-none absolute -left-28 top-0 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
+            <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
+                {/* Background Image */}
+                <Image
+                    src="/images/background/image.png"
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="absolute inset-0 z-0 object-cover"
+                />
 
-                <div className="pointer-events-none absolute -right-28 bottom-0 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
+                {/* Light Overlay */}
+                <div className="absolute inset-0 z-10 bg-white/70" />
 
-                <div className="container relative mx-auto px-6">
+                {/* Decorative Blur */}
+                <div className="pointer-events-none absolute -left-28 top-0 z-10 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
+
+                <div className="pointer-events-none absolute -right-28 bottom-0 z-10 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
+
+                {/* Content */}
+                <div className="container relative z-20 mx-auto px-6">
                     <div className="mx-auto max-w-3xl text-center">
 
-                        <span className="inline-flex items-center gap-2 rounded-full bg-background px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-background/90 px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm backdrop-blur-sm">
                             <Leaf className="h-4 w-4" />
                             Our Collection
                         </span>
 
                         <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
                             Natural Care for Your
-                            <span className="text-primary"> Everyday Beauty</span>
+                            <span className="text-primary">
+                                {" "}
+                                Everyday Beauty
+                            </span>
                         </h1>
 
                         <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
@@ -59,7 +78,6 @@ export default function page() {
 
                     </div>
                 </div>
-
             </section>
 
             <Suspense fallback={<div>Loading...</div>}>

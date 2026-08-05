@@ -24,7 +24,7 @@ export default function FeaturedProducts() {
                             relative
                             z-10
                             -translate-y-4
-                            h-100
+                            h-80
                             w-auto
                             object-contain
                             drop-shadow-[0_20px_35px_rgba(58,112,33,0.18)]

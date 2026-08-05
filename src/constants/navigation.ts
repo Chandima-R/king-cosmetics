@@ -15,20 +15,17 @@ export const navigationItems: NavigationItem[] = [
       },
       {
         label: "Hair Care",
-        href: "/categories/hair-care",
+        href: "/products?category=Hair+Care",
       },
       {
         label: "Skin Care",
-        href: "/categories/skin-care",
+        href: "/products?category=Skin+Care",
       },
       {
         label: "Body Care",
-        href: "/categories/body-care",
+        href: "products?category=Body+Care",
       },
-      {
-        label: "Herbal Oils",
-        href: "/categories/herbal-oils",
-      },
+      
     ],
   },
   {
