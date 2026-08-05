@@ -15,19 +15,16 @@ export default function BlogHero() {
 
                     <span className="inline-flex items-center gap-2 rounded-full bg-background px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm">
                         <Leaf className="h-4 w-4" />
-                        About Green Blue Nature
+                        Beauty Journal
                     </span>
 
                     <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-                        Inspired by Nature,
-                        <span className="text-primary"> Crafted with Care.</span>
+                        Beauty Tips, Care Guides &
+                        <span className="text-primary"> Natural Inspiration</span>
                     </h1>
 
                     <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-                        Discover our journey, our values and the passionate people
-                        behind Green Blue Nature. We are committed to creating
-                        premium-quality natural personal care products that promote
-                        confidence, wellness and everyday beauty.
+                        Discover practical skincare advice, hair care guidance, cosmetic tips and naturally inspired ideas to support your everyday beauty routine.
                     </p>
 
                 </div>

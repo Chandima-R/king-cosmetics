@@ -12,7 +12,8 @@ export default function Hero() {
                 isolate
                 overflow-hidden
                 bg-white
-               min-h-[calc(100svh-var(--hero-header-height))]
+                min-h-[calc(100svh-var(--hero-header-height))]
+                lg:min-h-[calc(100svh-var(--hero-header-height))]
             "
         >
             {/* Background image */}
@@ -25,16 +26,34 @@ export default function Hero() {
                     sizes="100vw"
                     className="
                         object-cover
-                        object-[65%_center]
-                        sm:object-[68%_center]
+                        object-[72%_center]
+                        sm:object-[70%_center]
+                        md:object-[68%_center]
                         lg:object-center
                         xl:object-right
                     "
                 />
             </div>
 
-            {/* Readability overlay */}
-
+            {/* Mobile and tablet readability overlay */}
+            <div
+                aria-hidden="true"
+                className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    -z-10
+                    bg-gradient-to-b
+                    from-white/90
+                    via-white/75
+                    to-white/45
+                    md:bg-gradient-to-r
+                    md:from-white/95
+                    md:via-white/75
+                    md:to-white/10
+                    lg:hidden
+                "
+            />
 
             {/* Decorative glow */}
             <div
@@ -81,16 +100,33 @@ export default function Hero() {
                     z-10
                     flex
                     min-h-[calc(100svh-var(--hero-header-height))]
-                    items-center
-                    pb-32
-                    pt-10
-                    sm:pb-36
-                    sm:pt-12
+                    items-start
+                    justify-center
+                    pb-8
+                    pt-16
+                    sm:items-center
+                    sm:pb-10
+                    sm:pt-14
+                    md:justify-start
+                    md:pb-12
+                    md:pt-12
+                    lg:items-center
+                    lg:justify-start
                     lg:pb-32
                     lg:pt-10
                 "
             >
-                <div className="w-full max-w-xl sm:max-w-2xl">
+                <div
+                    className="
+                        w-full
+                        max-w-[520px]
+                        text-center
+                        sm:max-w-xl
+                        md:max-w-2xl
+                        md:text-left
+                        lg:max-w-2xl
+                    "
+                >
                     {/* Badge */}
                     <div
                         className="
@@ -98,7 +134,9 @@ export default function Hero() {
                             hero-delay-1
                             mb-4
                             inline-flex
+                            max-w-full
                             items-center
+                            justify-center
                             gap-2
                             rounded-full
                             border
@@ -116,21 +154,24 @@ export default function Hero() {
                             sm:text-sm
                         "
                     >
-                        <Leaf className="h-4 w-4" />
+                        <Leaf className="h-4 w-4 shrink-0" />
 
-                        <span>100% Natural Herbal Products</span>
+                        <span className="truncate">
+                            100% Natural Herbal Products
+                        </span>
                     </div>
 
                     {/* Heading */}
                     <h1
                         className="
-                            text-[42px]
+                            text-[40px]
                             font-bold
                             leading-[0.98]
                             tracking-[-0.04em]
                             text-heading
-                            min-[380px]:text-5xl
+                            min-[380px]:text-[46px]
                             sm:text-6xl
+                            md:text-[62px]
                             lg:text-[64px]
                             xl:text-7xl
                         "
@@ -159,16 +200,18 @@ export default function Hero() {
                         className="
                             hero-fade-up
                             hero-delay-5
+                            mx-auto
                             mt-5
-                            max-w-lg
-                            text-black
+                            max-w-[440px]
                             text-sm
                             font-medium
                             leading-7
                             text-accent
                             sm:mt-6
+                            sm:max-w-lg
                             sm:text-base
                             sm:leading-8
+                            md:mx-0
                             lg:max-w-xl
                         "
                     >
@@ -182,13 +225,22 @@ export default function Hero() {
                         className="
                             hero-fade-up
                             hero-delay-6
+                            mx-auto
                             mt-7
                             flex
-                            flex-wrap
-                            items-center
+                            w-full
+                            max-w-sm
+                            flex-col
+                            items-stretch
                             gap-3
                             sm:mt-9
+                            sm:max-w-none
+                            sm:flex-row
+                            sm:items-center
+                            sm:justify-center
                             sm:gap-4
+                            md:mx-0
+                            md:justify-start
                         "
                     >
                         <Link
@@ -197,6 +249,7 @@ export default function Hero() {
                                 group
                                 inline-flex
                                 min-h-11
+                                w-full
                                 items-center
                                 justify-center
                                 gap-2
@@ -217,6 +270,7 @@ export default function Hero() {
                                 focus-visible:ring-2
                                 focus-visible:ring-primary
                                 focus-visible:ring-offset-2
+                                sm:w-auto
                                 sm:px-8
                             "
                         >
@@ -238,6 +292,7 @@ export default function Hero() {
                             className="
                                 inline-flex
                                 min-h-11
+                                w-full
                                 items-center
                                 justify-center
                                 rounded-full
@@ -261,25 +316,35 @@ export default function Hero() {
                                 focus-visible:ring-2
                                 focus-visible:ring-primary
                                 focus-visible:ring-offset-2
+                                sm:w-auto
                                 sm:px-8
                             "
                         >
                             Contact Us
                         </Link>
                     </div>
+
+                    {/* Mobile and tablet trust card */}
+                    <div className="relative z-20 pb-5 lg:hidden">
+                        <div className="site-container">
+                            <HeroTrustCard />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Trust card */}
+
+
+            {/* Desktop trust card - existing position */}
             <div
                 className="
                     absolute
-                    bottom-4
+                    bottom-6
                     left-0
                     right-0
                     z-20
-                    sm:bottom-5
-                    lg:bottom-6
+                    hidden
+                    lg:block
                 "
             >
                 <div className="site-container">

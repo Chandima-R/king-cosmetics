@@ -40,6 +40,10 @@ export const navigationItems: NavigationItem[] = [
     href: "/ingredients",
   },
   {
+    label: "Blogs",
+    href: "/blogs",
+  },
+  {
     label: "Contact",
     href: "/contact",
   },

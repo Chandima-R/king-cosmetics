@@ -72,7 +72,7 @@ export default function ContactForm() {
                     />
                 </div>
 
-                <button type="submit" className="group
+                <button type="submit" className="group col-span-2
                   inline-flex items-center justify-center gap-2
                   rounded-full
                   bg-primary
