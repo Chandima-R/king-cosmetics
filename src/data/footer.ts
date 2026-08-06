@@ -64,7 +64,7 @@ export const footerData: FooterData = {
         },
         {
             label: "WhatsApp",
-            href: "https://wa.me/94771234567",
+            href: "https://wa.me/94713455304",
             icon: "/images/social-media-icons/footer/whatsapp.png",
         },
     ],

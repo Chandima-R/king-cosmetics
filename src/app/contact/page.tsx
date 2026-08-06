@@ -1,4 +1,4 @@
-import { Leaf } from "lucide-react";
+import { ChevronRight, Home, Leaf } from "lucide-react";
 import Link from "next/link";
 import ContactSection from "@/components/contact/ContactSection";
 import SocialMediaSection from "@/components/contact/SocialMediaSection";
@@ -10,6 +10,27 @@ export default function Page() {
     return (
 
         <>
+
+            <div className="container mx-auto px-6 py-5">
+                <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm">
+
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+                    >
+                        <Home className="h-4 w-4" />
+                        Home
+                    </Link>
+
+                    <ChevronRight className="h-4 w-4 text-muted-foreground/40" />
+
+                    <span className="font-semibold text-foreground">
+                        Contact Us
+                    </span>
+                </nav>
+            </div>
+
+
             <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
                 {/* Background Image */}
                 <Image
