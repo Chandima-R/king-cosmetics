@@ -16,14 +16,6 @@ export default function BlogHero() {
                 className="absolute inset-0 z-0 object-cover"
             />
 
-            {/* Light Overlay */}
-            <div className="absolute inset-0 z-10 bg-white/70" />
-
-            {/* Decorative Blur */}
-            <div className="pointer-events-none absolute -left-28 top-0 z-10 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
-
-            <div className="pointer-events-none absolute -right-28 bottom-0 z-10 h-72 w-72 rounded-full bg-primary-light/20 blur-[100px]" />
-
             {/* Content */}
             <div className="container relative z-20 mx-auto px-6">
                 <div className="mx-auto max-w-3xl text-center">

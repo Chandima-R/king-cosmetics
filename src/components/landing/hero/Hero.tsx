@@ -6,351 +6,104 @@ import HeroTrustCard from "./HeroTrustCard";
 
 export default function Hero() {
     return (
-        <section
-            className="
-                relative
-                isolate
-                overflow-hidden
-                bg-white
-                min-h-[calc(100svh-var(--hero-header-height))]
-                lg:min-h-[calc(100svh-var(--hero-header-height))]
-            "
-        >
-            {/* Background image */}
-            <div className="absolute inset-0 -z-20">
-                <Image
-                    src="/images/hero/hero5.png"
-                    alt="Green Blue Nature herbal beauty products"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="
-                        object-cover
-                        object-[72%_center]
-                        sm:object-[70%_center]
-                        md:object-[68%_center]
-                        lg:object-center
-                        xl:object-right
-                    "
-                />
-            </div>
+        <>
+            <section className="relative isolate h-[560px] w-full overflow-hidden bg-white sm:h-[590px] md:h-[560px] lg:h-auto lg:min-h-[calc(100svh-var(--hero-header-height))]">
+                {/* Background images */}
+                <div className="absolute inset-0 -z-20">
+                    {/* Mobile and small-screen image */}
+                    <Image
+                        src="/images/hero/hero-mobile.png"
+                        alt="Green Blue Nature herbal beauty products"
+                        fill
+                        priority
+                        sizes="(max-width: 767px) 100vw, 0px"
+                        className="object-cover object-center md:hidden"
+                    />
 
-            {/* Mobile and tablet readability overlay */}
-            <div
-                aria-hidden="true"
-                className="
-                    pointer-events-none
-                    absolute
-                    inset-0
-                    -z-10
-                    bg-gradient-to-b
-                    from-white/90
-                    via-white/75
-                    to-white/45
-                    md:bg-gradient-to-r
-                    md:from-white/95
-                    md:via-white/75
-                    md:to-white/10
-                    lg:hidden
-                "
-            />
+                    {/* Medium and desktop image */}
+                    <Image
+                        src="/images/hero/hero5.png"
+                        alt="Green Blue Nature herbal beauty products"
+                        fill
+                        priority
+                        sizes="(min-width: 768px) 100vw, 0px"
+                        className="hidden object-cover md:block md:object-[62%_center] lg:object-center xl:object-right"
+                    />
+                </div>
 
-            {/* Decorative glow */}
-            <div
-                aria-hidden="true"
-                className="
-                    pointer-events-none
-                    absolute
-                    -left-24
-                    top-10
-                    -z-10
-                    h-64
-                    w-64
-                    rounded-full
-                    bg-primary-soft/40
-                    blur-[110px]
-                    sm:h-72
-                    sm:w-72
-                "
-            />
-
-            <div
-                aria-hidden="true"
-                className="
-                    pointer-events-none
-                    absolute
-                    -right-20
-                    bottom-10
-                    -z-10
-                    h-72
-                    w-72
-                    rounded-full
-                    bg-primary-light/20
-                    blur-[120px]
-                    lg:h-80
-                    lg:w-80
-                "
-            />
-
-            {/* Hero content */}
-            <div
-                className="
-                    site-container
-                    relative
-                    z-10
-                    flex
-                    min-h-[calc(100svh-var(--hero-header-height))]
-                    items-start
-                    justify-center
-                    pb-8
-                    pt-16
-                    sm:items-center
-                    sm:pb-10
-                    sm:pt-14
-                    md:justify-start
-                    md:pb-12
-                    md:pt-12
-                    lg:items-center
-                    lg:justify-start
-                    lg:pb-32
-                    lg:pt-10
-                "
-            >
+                {/* Mobile and tablet readability overlay */}
                 <div
-                    className="
-                        w-full
-                        max-w-[520px]
-                        text-center
-                        sm:max-w-xl
-                        md:max-w-2xl
-                        md:text-left
-                        lg:max-w-2xl
-                    "
-                >
-                    {/* Badge */}
-                    <div
-                        className="
-                            hero-fade-up
-                            hero-delay-1
-                            mb-4
-                            inline-flex
-                            max-w-full
-                            items-center
-                            justify-center
-                            gap-2
-                            rounded-full
-                            border
-                            border-primary/10
-                            bg-white/90
-                            px-3.5
-                            py-2
-                            text-xs
-                            font-semibold
-                            text-primary
-                            shadow-md
-                            backdrop-blur-md
-                            sm:mb-5
-                            sm:px-4
-                            sm:text-sm
-                        "
-                    >
-                        <Leaf className="h-4 w-4 shrink-0" />
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-white/95 via-white/72 to-white/5 lg:hidden"
+                />
 
-                        <span className="truncate">
-                            100% Natural Herbal Products
-                        </span>
-                    </div>
+                {/* Hero content */}
+                <div className="site-container relative z-10 flex h-full w-full items-center py-8 sm:py-10 md:py-12 lg:min-h-[calc(100svh-var(--hero-header-height))] lg:pb-32 lg:pt-10">
+                    <div className="w-full max-w-[285px] text-left min-[380px]:max-w-[310px] sm:max-w-[360px] md:max-w-[470px] lg:max-w-2xl">
+                        {/* Badge */}
+                        <div className="hero-fade-up hero-delay-1 mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/10 bg-white/90 px-3 py-1.5 text-[10px] font-semibold text-primary shadow-md backdrop-blur-md sm:mb-4 sm:px-4 sm:py-2 sm:text-xs md:text-sm lg:mb-5">
+                            <Leaf className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
 
-                    {/* Heading */}
-                    <h1
-                        className="
-                            text-[40px]
-                            font-bold
-                            leading-[0.98]
-                            tracking-[-0.04em]
-                            text-heading
-                            min-[380px]:text-[46px]
-                            sm:text-6xl
-                            md:text-[62px]
-                            lg:text-[64px]
-                            xl:text-7xl
-                        "
-                    >
-                        <span className="hero-heading-line hero-delay-2">
-                            Pure.
-                        </span>
+                            <span>100% Natural Herbal Products</span>
+                        </div>
 
-                        <span className="hero-heading-line hero-delay-3">
-                            Natural.
-                        </span>
+                        {/* Heading */}
+                        <h1 className="text-[31px] font-bold leading-[0.98] tracking-[-0.04em] text-heading min-[380px]:text-[35px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-7xl">
+                            <span className="hero-heading-line hero-delay-2">
+                                Pure.
+                            </span>
 
-                        <span
-                            className="
-                                hero-heading-line
-                                hero-delay-4
-                                text-primary-light
-                            "
-                        >
-                            Made for You.
-                        </span>
-                    </h1>
+                            <span className="hero-heading-line hero-delay-3">
+                                Natural.
+                            </span>
 
-                    {/* Description */}
-                    <p
-                        className="
-                            hero-fade-up
-                            hero-delay-5
-                            mx-auto
-                            mt-5
-                            max-w-[440px]
-                            text-sm
-                            font-medium
-                            leading-7
-                            text-accent
-                            sm:mt-6
-                            sm:max-w-lg
-                            sm:text-base
-                            sm:leading-8
-                            md:mx-0
-                            lg:max-w-xl
-                        "
-                    >
-                        Discover premium herbal hair care and beauty products
-                        made with carefully selected natural ingredients for
-                        healthy, beautiful skin and hair.
-                    </p>
+                            <span className="hero-heading-line hero-delay-4 text-primary-light">
+                                Made for You.
+                            </span>
+                        </h1>
 
-                    {/* Buttons */}
-                    <div
-                        className="
-                            hero-fade-up
-                            hero-delay-6
-                            mx-auto
-                            mt-7
-                            flex
-                            w-full
-                            max-w-sm
-                            flex-col
-                            items-stretch
-                            gap-3
-                            sm:mt-9
-                            sm:max-w-none
-                            sm:flex-row
-                            sm:items-center
-                            sm:justify-center
-                            sm:gap-4
-                            md:mx-0
-                            md:justify-start
-                        "
-                    >
-                        <Link
-                            href="/products"
-                            className="
-                                group
-                                inline-flex
-                                min-h-11
-                                w-full
-                                items-center
-                                justify-center
-                                gap-2
-                                rounded-full
-                                bg-primary
-                                px-6
-                                py-3
-                                text-sm
-                                font-semibold
-                                text-white
-                                shadow-lg
-                                transition-all
-                                duration-300
-                                hover:-translate-y-0.5
-                                hover:bg-primary-hover
-                                hover:shadow-xl
-                                focus-visible:outline-none
-                                focus-visible:ring-2
-                                focus-visible:ring-primary
-                                focus-visible:ring-offset-2
-                                sm:w-auto
-                                sm:px-8
-                            "
-                        >
-                            Shop Now
+                        {/* Description */}
+                        <p className="hero-fade-up hero-delay-5 mt-4 max-w-[270px] text-[11px] font-medium leading-5 font-semibold min-[380px]:text-xs min-[380px]:leading-6 sm:mt-5 sm:max-w-[330px] sm:text-[13px] sm:leading-6 md:max-w-[440px] md:text-[15px] md:leading-8 lg:mt-6 lg:max-w-xl lg:text-base">
+                            Discover premium herbal hair care and beauty
+                            products made with carefully selected natural
+                            ingredients for healthy, beautiful skin and hair.
+                        </p>
 
-                            <ArrowRight
-                                className="
-                                    h-4
-                                    w-4
-                                    transition-transform
-                                    duration-300
-                                    group-hover:translate-x-1
-                                "
-                            />
-                        </Link>
+                        {/* Buttons */}
+                        <div className="hero-fade-up hero-delay-6 mt-5 flex w-full max-w-[270px] flex-col gap-2.5 sm:mt-6 sm:max-w-[330px] sm:flex-row sm:gap-3 md:mt-7 md:max-w-none lg:mt-9 lg:gap-4">
+                            <Link
+                                href="/products"
+                                className="group inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl sm:w-auto sm:px-6 sm:text-sm lg:min-h-11 lg:px-8 lg:py-3"
+                            >
+                                Shop Now
 
-                        <Link
-                            href="/contact"
-                            className="
-                                inline-flex
-                                min-h-11
-                                w-full
-                                items-center
-                                justify-center
-                                rounded-full
-                                border
-                                border-primary/20
-                                bg-white/90
-                                px-6
-                                py-3
-                                text-sm
-                                font-semibold
-                                text-primary
-                                shadow-md
-                                backdrop-blur-sm
-                                transition-all
-                                duration-300
-                                hover:-translate-y-0.5
-                                hover:border-primary
-                                hover:bg-primary-soft
-                                hover:shadow-lg
-                                focus-visible:outline-none
-                                focus-visible:ring-2
-                                focus-visible:ring-primary
-                                focus-visible:ring-offset-2
-                                sm:w-auto
-                                sm:px-8
-                            "
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
+                                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 sm:h-4 sm:w-4" />
+                            </Link>
 
-                    {/* Mobile and tablet trust card */}
-                    <div className="relative z-20 pb-5 lg:hidden">
-                        <div className="site-container">
-                            <HeroTrustCard />
+                            <Link
+                                href="/contact"
+                                className="inline-flex min-h-10 w-full items-center justify-center rounded-full border border-primary/20 bg-white/90 px-5 py-2.5 text-xs font-semibold text-primary shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary-soft hover:shadow-lg sm:w-auto sm:px-6 sm:text-sm lg:min-h-11 lg:px-8 lg:py-3"
+                            >
+                                Contact Us
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-
-            {/* Desktop trust card - existing position */}
-            <div
-                className="
-                    absolute
-                    bottom-6
-                    left-0
-                    right-0
-                    z-20
-                    hidden
-                    lg:block
-                "
-            >
-                <div className="site-container">
-                    <HeroTrustCard />
+                {/* Desktop trust card */}
+                <div className="absolute inset-x-0 bottom-6 z-20 hidden lg:block">
+                    <div className="site-container">
+                        <HeroTrustCard variant="desktop" />
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Mobile and tablet trust ticker */}
+            <section className="border-y border-primary/10 bg-white py-3 shadow-[0_8px_25px_rgba(44,86,27,0.06)] lg:hidden">
+                <div className="site-container">
+                    <HeroTrustCard variant="mobile" />
+                </div>
+            </section>
+        </>
     );
 }

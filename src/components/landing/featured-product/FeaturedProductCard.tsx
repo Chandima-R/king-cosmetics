@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check, ShoppingCart } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useCart } from "@/context/CartContext";
 import type { Product } from "@/types/products/product";
@@ -16,11 +16,9 @@ export default function FeaturedProductCard({
     product,
 }: ProductCardProps) {
     const [isAdded, setIsAdded] = useState(false);
+    const timeoutRef = useRef<number | null>(null);
 
-    const {
-        addToCart,
-        getProductQuantity,
-    } = useCart();
+    const { addToCart } = useCart();
 
     const productUrl = `/products/${product.slug}`;
 
@@ -37,8 +35,6 @@ export default function FeaturedProductCard({
         currency: product.currency,
         minimumFractionDigits: 2,
     }).format(product.price);
-
-    const quantityInCart = getProductQuantity(product.id);
 
     const handleAddToCart = () => {
         if (!product.inStock) {
@@ -62,10 +58,28 @@ export default function FeaturedProductCard({
 
         setIsAdded(true);
 
-        window.setTimeout(() => {
+        if (timeoutRef.current !== null) {
+            window.clearTimeout(timeoutRef.current);
+        }
+
+        timeoutRef.current = window.setTimeout(() => {
             setIsAdded(false);
         }, 1200);
     };
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current !== null) {
+                window.clearTimeout(timeoutRef.current);
+            }
+        };
+    }, []);
+
+    const buttonClassName = !product.inStock
+        ? "flex h-11 w-11 shrink-0 cursor-not-allowed items-center justify-center rounded-full bg-muted text-muted-foreground shadow-md"
+        : isAdded
+            ? "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary shadow-md transition-all duration-300"
+            : "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-primary-hover hover:shadow-lg";
 
     return (
         <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-background transition-all duration-300 hover:border-primary/20 hover:shadow-lg">
@@ -79,11 +93,7 @@ export default function FeaturedProductCard({
                     src={mainImage}
                     alt={mainImageAlt}
                     fill
-                    sizes="
-                        (max-width: 640px) 100vw,
-                        (max-width: 1024px) 50vw,
-                        25vw
-                    "
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
 
@@ -112,7 +122,6 @@ export default function FeaturedProductCard({
                     {product.shortDescription}
                 </p>
 
-                {/* Bottom row */}
                 <div className="mt-auto flex items-end justify-between gap-4 pt-6">
                     <Link
                         href={productUrl}
@@ -125,30 +134,17 @@ export default function FeaturedProductCard({
                         type="button"
                         onClick={handleAddToCart}
                         disabled={!product.inStock}
-                        aria-label={`Add ${product.name} to cart`}
-                        className={`
-                            flex
-                            h-11
-                            w-11
-                            shrink-0
-                            items-center
-                            justify-center
-                            rounded-full
-                            shadow-md
-                            transition-all
-                            duration-300
-                            ${!product.inStock
-                                ? "cursor-not-allowed bg-muted text-muted-foreground"
-                                : isAdded
-                                    ? "bg-primary-soft text-primary"
-                                    : "bg-primary text-white hover:-translate-y-1 hover:bg-primary-hover hover:shadow-lg"
-                            }
-                        `}
+                        aria-label={
+                            product.inStock
+                                ? `Add ${product.name} to cart`
+                                : `${product.name} is unavailable`
+                        }
+                        className={buttonClassName}
                     >
                         {isAdded ? (
                             <Check className="h-5 w-5" />
                         ) : (
-                            <ShoppingCart className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                            <ShoppingCart className="h-5 w-5" />
                         )}
                     </button>
                 </div>
