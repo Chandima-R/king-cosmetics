@@ -54,7 +54,7 @@ export default function SocialMediaSection() {
 
                     {/* Social Icons */}
 
-                    <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+                    <div className="mt-12 flex flex-wrap items-center justify-center gap-3 md:gap-6">
 
                         {socialLinks.map((item) => {
                             const Icon = item.icon;
@@ -67,7 +67,7 @@ export default function SocialMediaSection() {
                                     aria-label={item.name}
                                     className="group flex flex-col items-center gap-4"
                                 >
-                                    <div className="flex h-20 w-20 items-center justify-center rounded-full border border-border bg-background shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-xl">
+                                    <div className="flex h-15 w-15 items-center justify-center rounded-full border border-border bg-background shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-xl">
 
                                         <Image
                                             src={item.icon}

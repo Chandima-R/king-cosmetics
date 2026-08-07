@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
     BadgeCheck,
     Boxes,
@@ -37,8 +36,6 @@ const trustItems = [
     },
 ];
 
-const AUTO_SLIDE_INTERVAL = 3000;
-
 type HeroTrustCardProps = {
     variant?: "mobile" | "desktop";
 };
@@ -46,89 +43,44 @@ type HeroTrustCardProps = {
 export default function HeroTrustCard({
     variant = "mobile",
 }: HeroTrustCardProps) {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    useEffect(() => {
-        if (variant !== "mobile") {
-            return;
-        }
-
-        const intervalId = window.setInterval(() => {
-            setActiveIndex(
-                (currentIndex) =>
-                    (currentIndex + 1) % trustItems.length,
-            );
-        }, AUTO_SLIDE_INTERVAL);
-
-        return () => {
-            window.clearInterval(intervalId);
-        };
-    }, [variant]);
-
     if (variant === "mobile") {
+        const loopItems = [...trustItems, ...trustItems];
+
         return (
-            <div className="mx-auto w-full max-w-md">
-                {/* Vertical slider viewport */}
-                <div className="h-[64px] overflow-hidden">
-                    <div
-                        className="transition-transform duration-700 ease-in-out"
-                        style={{
-                            transform: `translateY(-${activeIndex * 64
-                                }px)`,
-                        }}
-                    >
-                        {trustItems.map((item) => {
-                            const Icon = item.icon;
+            <div className="w-full overflow-hidden">
+                <div className="hero-trust-marquee flex w-max items-center">
+                    {loopItems.map((item, index) => {
+                        const Icon = item.icon;
 
-                            return (
-                                <div
-                                    key={item.title}
-                                    className="flex h-[64px] items-center justify-center"
-                                >
-                                    <div className="flex w-full items-center justify-center gap-3">
-                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
-                                            <Icon
-                                                className="h-[18px] w-[18px]"
-                                                strokeWidth={1.8}
-                                            />
-                                        </div>
-
-                                        <div className="min-w-0 text-left">
-                                            <h3 className="text-sm font-bold leading-5 text-heading">
-                                                {item.title}
-                                            </h3>
-
-                                            <p className="text-[11px] font-medium leading-4 text-muted">
-                                                {item.description}
-                                            </p>
-                                        </div>
-                                    </div>
+                        return (
+                            <div
+                                key={`${item.title}-${index}`}
+                                className="flex shrink-0 items-center gap-3 px-5 sm:px-6"
+                            >
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary sm:h-10 sm:w-10">
+                                    <Icon
+                                        className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
+                                        strokeWidth={1.8}
+                                    />
                                 </div>
-                            );
-                        })}
-                    </div>
-                </div>
 
-                {/* Minimal indicator */}
-                <div className="mt-1 flex items-center justify-center gap-1.5">
-                    {trustItems.map((item, index) => (
-                        <button
-                            key={item.title}
-                            type="button"
-                            onClick={() => setActiveIndex(index)}
-                            aria-label={`Show ${item.title}`}
-                            aria-current={
-                                activeIndex === index
-                                    ? "true"
-                                    : undefined
-                            }
-                            className={
-                                activeIndex === index
-                                    ? "h-1 w-4 rounded-full bg-primary transition-all duration-300"
-                                    : "h-1 w-1 rounded-full bg-primary/20 transition-all duration-300"
-                            }
-                        />
-                    ))}
+                                <div className="min-w-0 whitespace-nowrap">
+                                    <h3 className="text-xs font-bold leading-4 text-heading sm:text-sm sm:leading-5">
+                                        {item.title}
+                                    </h3>
+
+                                    <p className="mt-0.5 text-[9px] font-medium leading-3 text-muted sm:text-[10px] sm:leading-4">
+                                        {item.description}
+                                    </p>
+                                </div>
+
+                                <span
+                                    aria-hidden="true"
+                                    className="ml-2 h-7 w-px shrink-0 bg-primary/10"
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         );
@@ -144,6 +96,7 @@ export default function HeroTrustCard({
             <div className="grid grid-cols-5">
                 {trustItems.map((item, index) => {
                     const Icon = item.icon;
+
                     const hasDivider =
                         index !== trustItems.length - 1;
 

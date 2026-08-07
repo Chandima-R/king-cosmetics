@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.variable} min-h-screen bg-background font-sans text-body antialiased`}
+        className={`${quicksand.variable} min-h-screen bg-background font-sans text-body antialiased overflow-x-hidden`}
       >
         <AppProviders>
           <Header />

@@ -10,7 +10,7 @@ export default function ContactInformation() {
 
             <div className="container relative mx-auto px-6">
 
-                <div className="grid items-center gap-20 lg:grid-cols-[1fr_0.95fr]">
+                <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-[1fr_0.95fr]">
 
                     {/* LEFT */}
 
@@ -20,44 +20,84 @@ export default function ContactInformation() {
                             {contactInfo.badge}
                         </span>
 
-                        <h2 className="mt-7 text-5xl font-bold leading-[1.1] tracking-tight">
+                        <h2 className="mt-7 text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight">
                             {contactInfo.title}
                         </h2>
 
-                        <p className="mt-7 text-lg leading-8 text-muted-foreground">
+                        <p className="mt-7 text-sm md:text-lg leading-6 text-muted-foreground">
                             {contactInfo.description}
                         </p>
 
-                        <div className="mt-10 flex flex-wrap gap-4">
-
+                        <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
                             {/* Primary */}
-
                             <Link
                                 href="/contact"
-                                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/25"
+                                className="
+                                    inline-flex
+                                    items-center
+                                    gap-1.5
+                                    rounded-full
+                                    bg-primary
+                                    px-5
+                                    py-2
+                                    text-sm
+                                    font-semibold
+                                    text-white
+                                    shadow-lg
+                                    transition-all
+                                    duration-300
+                                    hover:-translate-y-1
+                                    hover:shadow-primary/25
+                                    md:gap-2
+                                    md:px-7
+                                    md:py-3.5
+                                    md:text-base
+                                "
                             >
-                                <Phone className="h-5 w-5" />
+                                <Phone className="h-4 w-4 md:h-5 md:w-5" />
                                 Contact Us
                             </Link>
 
                             {/* Secondary */}
-
                             <Link
                                 href="https://wa.me/94771234567"
                                 target="_blank"
-                                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 px-7 py-3.5 font-semibold text-primary backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white"
+                                className="
+                                    inline-flex
+                                    items-center
+                                    gap-1.5
+                                    rounded-full
+                                    border
+                                    border-primary/20
+                                    bg-white/70
+                                    px-5
+                                    py-2
+                                    text-sm
+                                    font-semibold
+                                    text-primary
+                                    backdrop-blur-xl
+                                    transition-all
+                                    duration-300
+                                    hover:-translate-y-1
+                                    hover:border-primary
+                                    hover:bg-primary
+                                    hover:text-white
+                                    md:gap-2
+                                    md:px-7
+                                    md:py-3.5
+                                    md:text-base
+                                "
                             >
-                                <MessageCircle className="h-5 w-5" />
+                                <MessageCircle className="h-4 w-4 md:h-5 md:w-5" />
                                 WhatsApp
                             </Link>
-
                         </div>
 
                     </div>
 
                     {/* RIGHT */}
 
-                    <div className="grid gap-6">
+                    <div className="grid gap-2 md:gap-6">
 
 
                         {contactInfo.contactItems.map((item) => (

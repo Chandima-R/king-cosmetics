@@ -29,6 +29,10 @@ export const navigationItems: NavigationItem[] = [
     ],
   },
   {
+    label: "Cart",
+    href: "/cart",
+  },
+  {
     label: "About Us",
     href: "/about",
   },

@@ -287,9 +287,14 @@ export function CartProvider({
         [],
     );
 
-    const clearCart = useCallback(() => {
+    // const clearCart = useCallback(() => {
+    //     setCartItems([]);
+    // }, []);
+
+    const clearCart = () => {
         setCartItems([]);
-    }, []);
+        localStorage.removeItem("cart");
+    };
 
     const isProductInCart = useCallback(
         (productId: number) =>

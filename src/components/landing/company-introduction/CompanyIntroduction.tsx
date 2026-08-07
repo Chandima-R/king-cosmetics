@@ -153,7 +153,7 @@ export default function CompanyIntroduction() {
 
                         <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-secondary-soft sm:text-3xl md:text-4xl lg:text-2xl xl:text-3xl">
                             Nature&apos;s Goodness,
-                            <span className="mt-1 block text-primary">
+                            <span className="mt-1 block text-primary-light">
                                 Crafted for Everyday Beauty
                             </span>
                         </h2>

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import type { CartItem } from "@/types/cart/cart";
+import { useCart } from "@/context/CartContext";
 
 type OrderSummaryProps = {
     items: CartItem[];
@@ -75,6 +76,7 @@ Please confirm product availability, delivery charges, and payment details.`,
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
     const isCartEmpty = items.length === 0;
+    const { clearCart } = useCart();
 
     return (
         <aside className="lg:sticky lg:top-28">
@@ -155,6 +157,7 @@ Please confirm product availability, delivery charges, and payment details.`,
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={clearCart}
                             className="group mt-7 inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(63,116,28,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg"
                         >
                             <MessageCircle className="h-5 w-5" />

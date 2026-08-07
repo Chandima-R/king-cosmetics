@@ -519,3 +519,25 @@
     transform: none;
   }
 }
+
+/* hero trust card mobile */
+@keyframes heroTrustMarquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.hero-trust-marquee {
+    animation: heroTrustMarquee 22s linear infinite;
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-trust-marquee {
+        animation: none;
+    }
+}
