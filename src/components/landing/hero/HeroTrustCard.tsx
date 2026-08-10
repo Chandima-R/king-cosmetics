@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import {
     BadgeCheck,
     Boxes,
@@ -44,11 +45,24 @@ export default function HeroTrustCard({
     variant = "mobile",
 }: HeroTrustCardProps) {
     if (variant === "mobile") {
-        const loopItems = [...trustItems, ...trustItems];
+        const loopItems = [
+            ...trustItems,
+            ...trustItems,
+        ];
 
         return (
             <div className="w-full overflow-hidden">
-                <div className="hero-trust-marquee flex w-max items-center">
+                <motion.div
+                    className="flex w-max items-center"
+                    animate={{
+                        x: ["0%", "-50%"],
+                    }}
+                    transition={{
+                        duration: 22,
+                        repeat: Infinity,
+                        ease: "linear",
+                    }}
+                >
                     {loopItems.map((item, index) => {
                         const Icon = item.icon;
 
@@ -81,7 +95,7 @@ export default function HeroTrustCard({
                             </div>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
         );
     }
