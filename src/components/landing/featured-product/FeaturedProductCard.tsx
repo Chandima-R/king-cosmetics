@@ -112,27 +112,28 @@ export default function FeaturedProductCard({
             </Link>
 
             {/* Content */}
-            <div className="flex flex-1 flex-col px-6 pb-5 pt-4 sm:px-3.5 sm:pb-3.5 sm:pt-3 md:px-6 md:pb-5 md:pt-4">
+            <div className="flex flex-1 flex-col px-2 md:px-6 py-4">
                 <Link href={productUrl}>
-                    <h3 className="line-clamp-2 min-h-[3.5rem] font-bold text-foreground transition-colors duration-300 hover:text-primary sm:min-h-[2.5rem] text-[15px] leading-5 md:min-h-[3.5rem] md:text-lg md:leading-7">
+                    <h3 className="text-xs md:text-lg font-bold leading-snug text-foreground transition-colors duration-300 hover:text-primary">
                         {product.name}
                     </h3>
                 </Link>
 
-                <p className="mt-1 md:mt-3 line-clamp-3 hidden md:block min-h-[3.75rem] text-muted-foreground sm:mt-2 sm:min-h-[3rem] text-xs sm:leading-4 md:mt-3 md:min-h-[3.75rem] md:text-sm md:leading-5">
+                <p className="mt-2 line-clamp-2 min-h-10 hidden md:block text-xs leading-5 text-muted-foreground sm:text-sm">
                     {product.shortDescription}
                 </p>
 
-                {/* Bottom row */}
-                <div className="mt-auto flex items-end justify-between gap-4 pt-0 md:pt-6 sm:gap-2 sm:pt-3.5 md:gap-4">
-                    <Link
-                        href={productUrl}
-                        className="min-w-0 font-bold text-foreground transition-colors hover:text-primary text-xs md:text-base"
-                    >
-                        <span className="block truncate">
-                            {formattedPrice}
+                <div className="mt-auto flex items-end justify-between gap-4 md:pt-5">
+                    <div>
+                        <span className="hidden md:inline-flex rounded-full bg-primary-soft px-2.5 py-1 text-[9px] md:text-xs font-bold text-primary">
+                            {product.size}
                         </span>
-                    </Link>
+
+                        <p className="mt-2 text-[10px] md:text-base font-bold text-foreground">
+                            {formattedPrice}
+                        </p>
+
+                    </div>
 
                     <button
                         type="button"
@@ -153,6 +154,7 @@ export default function FeaturedProductCard({
                     </button>
                 </div>
             </div>
+
         </article>
     );
 }

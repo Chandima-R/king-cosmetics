@@ -73,7 +73,7 @@ export default function FeaturedProducts() {
 
                 {/* Product Grid */}
                 {featuredProducts.length > 0 ? (
-                    <div className="mt-12 grid gap-7 grid-cols-2 md:grid-cols-4">
+                    <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 xl:grid-cols-4">
                         {featuredProducts.map((product) => (
                             <FeaturedProductCard key={product.id} product={product} />
                         ))}
