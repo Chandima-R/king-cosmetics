@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const WHATSAPP_NUMBER = "94771234567";
+const WHATSAPP_NUMBER = "94713455304";
 
 const DEFAULT_MESSAGE =
     "Hello, I would like to know more about your products.";

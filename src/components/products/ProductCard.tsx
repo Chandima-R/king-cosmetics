@@ -91,37 +91,37 @@ export default function ProductCard({
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <span className="absolute left-5 top-5 rounded-full border border-white/60 bg-white/85 px-4 py-2 text-xs font-semibold text-primary shadow-sm backdrop-blur-md">
+                <span className="absolute left-5 hidden md:block top-5 rounded-full border border-white/60 bg-white/85 px-4 py-2 text-xs font-semibold text-primary shadow-sm backdrop-blur-md">
                     {product.category}
                 </span>
             </Link>
 
             {/* Content */}
-            <div className="flex flex-1 flex-col px-6 py-4">
+            <div className="flex flex-1 flex-col px-2 md:px-6 py-4">
                 <Link href={productUrl}>
-                    <h3 className="text-lg font-bold leading-snug text-foreground transition-colors duration-300 hover:text-primary">
+                    <h3 className="text-xs md:text-lg font-bold leading-snug text-foreground transition-colors duration-300 hover:text-primary">
                         {product.name}
                     </h3>
                 </Link>
 
-                <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-muted-foreground sm:text-sm">
+                <p className="mt-2 line-clamp-2 min-h-10 hidden md:block text-xs leading-5 text-muted-foreground sm:text-sm">
                     {product.shortDescription}
                 </p>
 
-                <div className="mt-auto flex items-end justify-between gap-4 pt-5">
+                <div className="mt-auto flex items-end justify-between gap-4 md:pt-5">
                     <div>
-                        <span className="inline-flex rounded-full bg-primary-soft px-2.5 py-1 text-xs font-bold text-primary">
+                        <span className="hidden md:inline-flex rounded-full bg-primary-soft px-2.5 py-1 text-[9px] md:text-xs font-bold text-primary">
                             {product.size}
                         </span>
 
-                        <p className="mt-2 text-base font-bold text-foreground">
+                        <p className="mt-2 text-[10px] md:text-base font-bold text-foreground">
                             {formattedPrice}
                         </p>
 
                         {isAlreadyInCart && (
                             <Link
                                 href="/cart"
-                                className="mt-1 inline-flex text-xs font-semibold text-primary hover:underline"
+                                className="mt-1 hidden md:inline-flex text-xs font-semibold text-primary hover:underline"
                             >
                                 View Cart
                             </Link>
@@ -134,7 +134,7 @@ export default function ProductCard({
                         disabled={!product.inStock}
                         aria-label={`Add ${product.name} to cart`}
                         className={`
-                            flex h-11 w-11 shrink-0
+                            flex h-6 w-6 md:h-11 md:w-11 shrink-0
                             items-center justify-center
                             rounded-full text-white
                             shadow-md
@@ -149,9 +149,9 @@ export default function ProductCard({
                         `}
                     >
                         {showAddedState ? (
-                            <Check className="h-5 w-5" />
+                            <Check className="h-3 w-3 md:h-5 md:w-5" />
                         ) : (
-                            <ShoppingCart className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                            <ShoppingCart className="h-3 w-3 md:h-5 md:w-5 transition-transform duration-300 group-hover:scale-110" />
                         )}
                     </button>
                 </div>

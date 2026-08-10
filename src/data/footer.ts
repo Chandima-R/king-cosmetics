@@ -49,17 +49,17 @@ export const footerData: FooterData = {
     socialLinks: [
         {
             label: "Facebook",
-            href: "https://facebook.com/",
+            href: "https://www.facebook.com/greenbluenature",
             icon: "/images/social-media-icons/footer/facebook.png",
         },
         {
             label: "Instagram",
-            href: "https://instagram.com/",
+            href: "https://www.instagram.com/greenbluenaturesl?igsh=ZmhjMDBlYmRzcHh3",
             icon: "/images/social-media-icons/footer/instagram.png",
         },
         {
             label: "TikTok",
-            href: "https://tiktok.com/",
+            href: "https://www.tiktok.com/@greenbluenature?_r=1&_t=ZS-98fz7Rq998L",
             icon: "/images/social-media-icons/footer/tiktok.png",
         },
         {
@@ -74,23 +74,24 @@ export const footerData: FooterData = {
             id: 1,
             type: "address",
             values: [
-                "Green Blue Nature (Pvt) Ltd",
-                "No. 123, Galle Road",
-                "Colombo 03, Sri Lanka",
+                "Green Blue Nature SL (Pvt) Ltd",
+                "udu pussellawa, Badulla",
+                "Sri Lanka",
             ],
         },
         {
             id: 2,
             type: "phone",
             values: [
-                "+94 77 123 4567",
-                "+94 11 234 5678",
+                "+94 71 345 5304",
+                "+94 77 314 5296",
+                
             ],
         },
         {
             id: 3,
             type: "email",
-            values: ["info@greenbluenature.lk"],
+            values: ["greenbluenaturesl@gmail.com"],
         },
     ],
 };

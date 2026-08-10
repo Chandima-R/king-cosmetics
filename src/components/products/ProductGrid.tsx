@@ -12,6 +12,8 @@ import {
     useSearchParams,
 } from "next/navigation";
 import {
+    ChevronLeft,
+    ChevronRight,
     PackageSearch,
     RotateCcw,
 } from "lucide-react";
@@ -27,6 +29,7 @@ type ProductsGridProps = {
 };
 
 const ALL_CATEGORY = "All";
+const PRODUCTS_PER_PAGE = 8;
 
 export default function ProductsGrid({
     products,
@@ -48,6 +51,9 @@ export default function ProductsGrid({
         selectedCategory,
         setSelectedCategory,
     ] = useState(categoryFromUrl);
+
+    const [currentPage, setCurrentPage] =
+        useState(1);
 
     const categories = useMemo(() => {
         const productCategories = products
@@ -89,10 +95,6 @@ export default function ProductsGrid({
                 searchParams.toString(),
             );
 
-            /*
-             * Check with trim(), but save the original
-             * value so spaces can still be typed.
-             */
             if (search.trim()) {
                 params.set("search", search);
             } else {
@@ -127,6 +129,7 @@ export default function ProductsGrid({
         value: string,
     ) => {
         setSearchQuery(value);
+        setCurrentPage(1);
 
         updateUrl(
             value,
@@ -138,6 +141,7 @@ export default function ProductsGrid({
         category: string,
     ) => {
         setSelectedCategory(category);
+        setCurrentPage(1);
 
         updateUrl(
             searchQuery,
@@ -148,6 +152,7 @@ export default function ProductsGrid({
     const clearFilters = () => {
         setSearchQuery("");
         setSelectedCategory(ALL_CATEGORY);
+        setCurrentPage(1);
 
         router.replace(pathname, {
             scroll: false,
@@ -204,12 +209,91 @@ export default function ProductsGrid({
         selectedCategory,
     ]);
 
+    const totalPages = Math.ceil(
+        filteredProducts.length /
+        PRODUCTS_PER_PAGE,
+    );
+
+    const paginatedProducts = useMemo(() => {
+        const startIndex =
+            (currentPage - 1) *
+            PRODUCTS_PER_PAGE;
+
+        const endIndex =
+            startIndex + PRODUCTS_PER_PAGE;
+
+        return filteredProducts.slice(
+            startIndex,
+            endIndex,
+        );
+    }, [
+        filteredProducts,
+        currentPage,
+    ]);
+
+    /*
+     * If filtering reduces the number of pages,
+     * keep currentPage inside the valid range.
+     */
+    useEffect(() => {
+        if (
+            totalPages > 0 &&
+            currentPage > totalPages
+        ) {
+            setCurrentPage(totalPages);
+        }
+    }, [currentPage, totalPages]);
+
     const hasActiveFilters =
         searchQuery.trim() !== "" ||
         selectedCategory !== ALL_CATEGORY;
 
+    const handlePageChange = (
+        page: number,
+    ) => {
+        if (
+            page < 1 ||
+            page > totalPages ||
+            page === currentPage
+        ) {
+            return;
+        }
+
+        setCurrentPage(page);
+
+        /*
+         * Scroll back to product collection
+         * instead of the top of the whole page.
+         */
+        window.requestAnimationFrame(() => {
+            document
+                .getElementById(
+                    "product-collection",
+                )
+                ?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+        });
+    };
+
+    const firstVisibleProduct =
+        filteredProducts.length === 0
+            ? 0
+            : (currentPage - 1) *
+            PRODUCTS_PER_PAGE +
+            1;
+
+    const lastVisibleProduct = Math.min(
+        currentPage * PRODUCTS_PER_PAGE,
+        filteredProducts.length,
+    );
+
     return (
-        <section className="py-16 sm:py-20 lg:py-24">
+        <section
+            id="product-collection"
+            className="scroll-mt-28 py-16 sm:py-20 lg:py-24"
+        >
             <div className="container mx-auto px-6">
                 {/* Search and categories */}
                 <div className="rounded-[2rem] border border-border bg-background p-5 sm:p-7 lg:p-8">
@@ -233,7 +317,9 @@ export default function ProductsGrid({
                         {hasActiveFilters && (
                             <button
                                 type="button"
-                                onClick={clearFilters}
+                                onClick={
+                                    clearFilters
+                                }
                                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border px-5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary-soft hover:text-primary"
                             >
                                 <RotateCcw className="h-4 w-4" />
@@ -276,30 +362,127 @@ export default function ProductsGrid({
                         aria-live="polite"
                         className="text-sm font-medium text-muted-foreground"
                     >
-                        Showing{" "}
-                        <span className="font-bold text-foreground">
-                            {
-                                filteredProducts.length
-                            }
-                        </span>{" "}
-                        {filteredProducts.length === 1
-                            ? "product"
-                            : "products"}
+                        {filteredProducts.length >
+                            0 ? (
+                            <>
+                                Showing{" "}
+                                <span className="font-bold text-foreground">
+                                    {
+                                        firstVisibleProduct
+                                    }
+                                    –
+                                    {
+                                        lastVisibleProduct
+                                    }
+                                </span>{" "}
+                                of{" "}
+                                <span className="font-bold text-foreground">
+                                    {
+                                        filteredProducts.length
+                                    }
+                                </span>{" "}
+                                products
+                            </>
+                        ) : (
+                            "No products"
+                        )}
                     </p>
                 </div>
 
                 {/* Product grid */}
-                {filteredProducts.length > 0 ? (
-                    <div className="mt-10 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {filteredProducts.map(
-                            (product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                />
-                            ),
+                {filteredProducts.length >
+                    0 ? (
+                    <>
+                        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-7 xl:grid-cols-4">
+                            {paginatedProducts.map(
+                                (product) => (
+                                    <ProductCard
+                                        key={
+                                            product.id
+                                        }
+                                        product={
+                                            product
+                                        }
+                                    />
+                                ),
+                            )}
+                        </div>
+
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
+                                {/* Previous */}
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handlePageChange(
+                                            currentPage -
+                                            1,
+                                        )
+                                    }
+                                    disabled={
+                                        currentPage === 1
+                                    }
+                                    aria-label="Previous page"
+                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-all duration-300 hover:border-primary hover:bg-primary-soft hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                                >
+                                    <ChevronLeft className="h-4 w-4" />
+                                </button>
+
+                                {/* Page numbers */}
+                                {Array.from(
+                                    {
+                                        length: totalPages,
+                                    },
+                                    (_, index) =>
+                                        index + 1,
+                                ).map((page) => (
+                                    <button
+                                        key={page}
+                                        type="button"
+                                        onClick={() =>
+                                            handlePageChange(
+                                                page,
+                                            )
+                                        }
+                                        aria-label={`Go to page ${page}`}
+                                        aria-current={
+                                            currentPage ===
+                                                page
+                                                ? "page"
+                                                : undefined
+                                        }
+                                        className={`flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-semibold transition-all duration-300 ${currentPage ===
+                                            page
+                                            ? "bg-primary text-white shadow-md"
+                                            : "border border-border bg-background text-muted-foreground hover:border-primary hover:bg-primary-soft hover:text-primary"
+                                            }`}
+                                    >
+                                        {page}
+                                    </button>
+                                ))}
+
+                                {/* Next */}
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handlePageChange(
+                                            currentPage +
+                                            1,
+                                        )
+                                    }
+                                    disabled={
+                                        currentPage ===
+                                        totalPages
+                                    }
+                                    aria-label="Next page"
+                                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-all duration-300 hover:border-primary hover:bg-primary-soft hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                                >
+                                    <ChevronRight className="h-4 w-4" />
+                                </button>
+                            </div>
                         )}
-                    </div>
+                    </>
                 ) : (
                     <div className="mt-10 flex min-h-[380px] flex-col items-center justify-center rounded-[2rem] border border-dashed border-border bg-primary-soft/30 px-6 py-16 text-center">
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary shadow-sm">
@@ -321,7 +504,9 @@ export default function ProductsGrid({
 
                         <button
                             type="button"
-                            onClick={clearFilters}
+                            onClick={
+                                clearFilters
+                            }
                             className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
                         >
                             <RotateCcw className="h-4 w-4" />

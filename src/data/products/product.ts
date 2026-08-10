@@ -757,6 +757,291 @@ export const products: Product[] = [
   featured: false,
   inStock: true,
 },
+{
+  id: 8,
+  name: "Aloe Moisturizing Body Lotion",
+  slug: "aloe-moisturizing-body-lotion",
+  category: "Body Care",
+  price: 2550,
+  currency: "LKR",
+
+  images: [
+    {
+      id: 1,
+      src: "/images/products/product1.png",
+      alt: "Aloe Moisturizing Body Lotion front view",
+    },
+    {
+      id: 2,
+      src: "/images/products/body-lotion/side.png",
+      alt: "Aloe Moisturizing Body Lotion side view",
+    },
+    {
+      id: 3,
+      src: "/images/products/body-lotion/back.png",
+      alt: "Aloe Moisturizing Body Lotion back view",
+    },
+    {
+      id: 4,
+      src: "/images/products/body-lotion/ingredients.png",
+      alt: "Aloe Moisturizing Body Lotion ingredients",
+    },
+  ],
+
+  size: "300 ml",
+
+  shortDescription:
+    "A lightweight body lotion enriched with Aloe Vera to help keep skin feeling soft and hydrated.",
+
+  fullDescription: [
+    "Aloe Moisturizing Body Lotion provides daily hydration for dry and normal skin.",
+    "Its fast-absorbing formula leaves the skin feeling smooth without a greasy finish.",
+    "Perfect for everyday body care.",
+  ],
+
+  benefits: [
+    { id: 1, text: "Helps maintain skin moisture." },
+    { id: 2, text: "Leaves skin feeling soft." },
+    { id: 3, text: "Fast-absorbing formula." },
+    { id: 4, text: "Suitable for everyday use." },
+    { id: 5, text: "Contains Aloe Vera extract." },
+  ],
+
+  ingredients: [
+    { id: 1, text: "Aloe Vera Extract" },
+    { id: 2, text: "Shea Butter" },
+    { id: 3, text: "Vitamin E" },
+    { id: 4, text: "Glycerin" },
+    { id: 5, text: "Skin conditioning ingredients" },
+  ],
+
+  howToUse: [
+    { id: 1, text: "Apply to clean, dry skin." },
+    { id: 2, text: "Massage gently until absorbed." },
+    { id: 3, text: "Focus on dry areas." },
+    { id: 4, text: "Use daily." },
+    { id: 5, text: "Reapply as needed." },
+  ],
+
+  suitableFor: [
+    { id: 1, text: "Dry skin" },
+    { id: 2, text: "Normal skin" },
+    { id: 3, text: "Men and women" },
+    { id: 4, text: "Daily body care" },
+  ],
+
+  precautions: [
+    { id: 1, text: "For external use only." },
+    { id: 2, text: "Avoid contact with eyes." },
+    { id: 3, text: "Do not apply to broken skin." },
+    { id: 4, text: "Keep away from children." },
+  ],
+
+  allergyWarnings: [
+    { id: 1, text: "Patch test recommended." },
+    { id: 2, text: "Stop use if irritation occurs." },
+    { id: 3, text: "Review ingredients before use if sensitive." },
+  ],
+
+  storageInstructions: [
+    { id: 1, text: "Store in a cool and dry place." },
+    { id: 2, text: "Protect from direct sunlight." },
+    { id: 3, text: "Close the cap after use." },
+  ],
+
+  featured: false,
+  inStock: true,
+},
+{
+  id: 9,
+  name: "Aloe Moisturizing Body Lotion",
+  slug: "aloe-moisturizing-body-lotion",
+  category: "Body Care",
+  price: 2550,
+  currency: "LKR",
+
+  images: [
+    {
+      id: 1,
+      src: "/images/products/product1.png",
+      alt: "Aloe Moisturizing Body Lotion front view",
+    },
+    {
+      id: 2,
+      src: "/images/products/body-lotion/side.png",
+      alt: "Aloe Moisturizing Body Lotion side view",
+    },
+    {
+      id: 3,
+      src: "/images/products/body-lotion/back.png",
+      alt: "Aloe Moisturizing Body Lotion back view",
+    },
+    {
+      id: 4,
+      src: "/images/products/body-lotion/ingredients.png",
+      alt: "Aloe Moisturizing Body Lotion ingredients",
+    },
+  ],
+
+  size: "300 ml",
+
+  shortDescription:
+    "A lightweight body lotion enriched with Aloe Vera to help keep skin feeling soft and hydrated.",
+
+  fullDescription: [
+    "Aloe Moisturizing Body Lotion provides daily hydration for dry and normal skin.",
+    "Its fast-absorbing formula leaves the skin feeling smooth without a greasy finish.",
+    "Perfect for everyday body care.",
+  ],
+
+  benefits: [
+    { id: 1, text: "Helps maintain skin moisture." },
+    { id: 2, text: "Leaves skin feeling soft." },
+    { id: 3, text: "Fast-absorbing formula." },
+    { id: 4, text: "Suitable for everyday use." },
+    { id: 5, text: "Contains Aloe Vera extract." },
+  ],
+
+  ingredients: [
+    { id: 1, text: "Aloe Vera Extract" },
+    { id: 2, text: "Shea Butter" },
+    { id: 3, text: "Vitamin E" },
+    { id: 4, text: "Glycerin" },
+    { id: 5, text: "Skin conditioning ingredients" },
+  ],
+
+  howToUse: [
+    { id: 1, text: "Apply to clean, dry skin." },
+    { id: 2, text: "Massage gently until absorbed." },
+    { id: 3, text: "Focus on dry areas." },
+    { id: 4, text: "Use daily." },
+    { id: 5, text: "Reapply as needed." },
+  ],
+
+  suitableFor: [
+    { id: 1, text: "Dry skin" },
+    { id: 2, text: "Normal skin" },
+    { id: 3, text: "Men and women" },
+    { id: 4, text: "Daily body care" },
+  ],
+
+  precautions: [
+    { id: 1, text: "For external use only." },
+    { id: 2, text: "Avoid contact with eyes." },
+    { id: 3, text: "Do not apply to broken skin." },
+    { id: 4, text: "Keep away from children." },
+  ],
+
+  allergyWarnings: [
+    { id: 1, text: "Patch test recommended." },
+    { id: 2, text: "Stop use if irritation occurs." },
+    { id: 3, text: "Review ingredients before use if sensitive." },
+  ],
+
+  storageInstructions: [
+    { id: 1, text: "Store in a cool and dry place." },
+    { id: 2, text: "Protect from direct sunlight." },
+    { id: 3, text: "Close the cap after use." },
+  ],
+
+  featured: false,
+  inStock: true,
+},
+{
+  id: 10,
+  name: "Aloe Moisturizing Body Lotion",
+  slug: "aloe-moisturizing-body-lotion",
+  category: "Body Care",
+  price: 2550,
+  currency: "LKR",
+
+  images: [
+    {
+      id: 1,
+      src: "/images/products/product1.png",
+      alt: "Aloe Moisturizing Body Lotion front view",
+    },
+    {
+      id: 2,
+      src: "/images/products/body-lotion/side.png",
+      alt: "Aloe Moisturizing Body Lotion side view",
+    },
+    {
+      id: 3,
+      src: "/images/products/body-lotion/back.png",
+      alt: "Aloe Moisturizing Body Lotion back view",
+    },
+    {
+      id: 4,
+      src: "/images/products/body-lotion/ingredients.png",
+      alt: "Aloe Moisturizing Body Lotion ingredients",
+    },
+  ],
+
+  size: "300 ml",
+
+  shortDescription:
+    "A lightweight body lotion enriched with Aloe Vera to help keep skin feeling soft and hydrated.",
+
+  fullDescription: [
+    "Aloe Moisturizing Body Lotion provides daily hydration for dry and normal skin.",
+    "Its fast-absorbing formula leaves the skin feeling smooth without a greasy finish.",
+    "Perfect for everyday body care.",
+  ],
+
+  benefits: [
+    { id: 1, text: "Helps maintain skin moisture." },
+    { id: 2, text: "Leaves skin feeling soft." },
+    { id: 3, text: "Fast-absorbing formula." },
+    { id: 4, text: "Suitable for everyday use." },
+    { id: 5, text: "Contains Aloe Vera extract." },
+  ],
+
+  ingredients: [
+    { id: 1, text: "Aloe Vera Extract" },
+    { id: 2, text: "Shea Butter" },
+    { id: 3, text: "Vitamin E" },
+    { id: 4, text: "Glycerin" },
+    { id: 5, text: "Skin conditioning ingredients" },
+  ],
+
+  howToUse: [
+    { id: 1, text: "Apply to clean, dry skin." },
+    { id: 2, text: "Massage gently until absorbed." },
+    { id: 3, text: "Focus on dry areas." },
+    { id: 4, text: "Use daily." },
+    { id: 5, text: "Reapply as needed." },
+  ],
+
+  suitableFor: [
+    { id: 1, text: "Dry skin" },
+    { id: 2, text: "Normal skin" },
+    { id: 3, text: "Men and women" },
+    { id: 4, text: "Daily body care" },
+  ],
+
+  precautions: [
+    { id: 1, text: "For external use only." },
+    { id: 2, text: "Avoid contact with eyes." },
+    { id: 3, text: "Do not apply to broken skin." },
+    { id: 4, text: "Keep away from children." },
+  ],
+
+  allergyWarnings: [
+    { id: 1, text: "Patch test recommended." },
+    { id: 2, text: "Stop use if irritation occurs." },
+    { id: 3, text: "Review ingredients before use if sensitive." },
+  ],
+
+  storageInstructions: [
+    { id: 1, text: "Store in a cool and dry place." },
+    { id: 2, text: "Protect from direct sunlight." },
+    { id: 3, text: "Close the cap after use." },
+  ],
+
+  featured: false,
+  inStock: true,
+},
 ];
 
 export function getProductBySlug(slug: string) {

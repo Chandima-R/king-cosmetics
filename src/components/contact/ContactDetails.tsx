@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock3 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock3, MessageCircle } from "lucide-react";
 
 const contactDetails = [
     {
@@ -6,19 +6,19 @@ const contactDetails = [
         title: "Visit Us",
         value: [
             "Green Blue Nature (Pvt) Ltd",
-            "No. 123, Galle Road,",
-            "Colombo 03, Sri Lanka",
+            "Udu pussellawa, Badulla, ",
+            "Sri Lanka",
         ],
     },
     {
         icon: Phone,
         title: "Call Us",
-        value: ["+94 77 123 4567", "+94 11 234 5678"],
+        value: ["+94 77 314 5296", "+94 71 345 5304"],
     },
     {
         icon: Mail,
         title: "Email Us",
-        value: ["info@greenbluenature.lk"],
+        value: ["greenbluenaturesl@gmail.com"],
     },
     {
         icon: Clock3,
@@ -57,14 +57,16 @@ export default function ContactDetails() {
                 </p>
             </div>
 
-            <div className="grid grid-col-0 md:grid-cols-2 gap-4">
+
+
+            <div className="grid grid-col-0 md:grid-cols-2 gap-2 mt-3 md:mt-0">
                 {contactDetails.map((item) => {
                     const Icon = item.icon;
 
                     return (
                         <div
                             key={item.title}
-                            className="group flex gap-3 rounded-3xl border border-border bg-background p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
+                            className="group flex gap-3 rounded-3xl border border-border bg-background px-2 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
                         >
 
                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">

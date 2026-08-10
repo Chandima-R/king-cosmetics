@@ -5,22 +5,22 @@ import Image from "next/image";
 const socialLinks = [
     {
         name: "WhatsApp",
-        href: "https://wa.me/94771234567",
+        href: "https://wa.me/94713455304",
         icon: "/images/social-media-icons/whatsapp.png",
     },
     {
         name: "Facebook",
-        href: "https://facebook.com/",
+        href: "https://www.facebook.com/greenbluenature",
         icon: "/images/social-media-icons/facebook.png",
     },
     {
         name: "Instagram",
-        href: "https://instagram.com/",
+        href: "https://www.instagram.com/greenbluenaturesl?igsh=ZmhjMDBlYmRzcHh3",
         icon: "/images/social-media-icons/instagram.png",
     },
     {
         name: "TikTok",
-        href: "https://tiktok.com/",
+        href: "https://www.tiktok.com/@greenbluenature?_r=1&_t=ZS-98fz7Rq998L",
         icon: "/images/social-media-icons/tiktok.png",
     },
 ];
