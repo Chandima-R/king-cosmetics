@@ -101,7 +101,7 @@ export default function CompanyIntroduction() {
 
                         <StaggerContainer
                             className="mt-5 space-y-2.5 lg:mt-4"
-                            staggerDelay={0.1}
+                            stagger={0.1}
                         >
                             {highlights.map((item) => (
                                 <div
