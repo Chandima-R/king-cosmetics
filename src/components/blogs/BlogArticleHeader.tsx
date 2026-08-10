@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
     CalendarDays,
     ChevronRight,
-    Clock3,
     Home,
 } from "lucide-react";
 
@@ -66,53 +65,49 @@ export default function BlogArticleHeader({
 
                 <div className="container relative mx-auto px-5 sm:px-6">
                     <div className="overflow-hidden rounded-[28px] border border-primary/10 bg-background shadow-[0_18px_55px_rgba(44,86,27,0.08)]">
-                        <div className="grid items-stretch md:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[0.82fr_1.18fr]">
+                        <div className="grid items-stretch md:grid-cols-[0.68fr_1.32fr] lg:grid-cols-[0.82fr_1.18fr]">
                             {/* Square cover image */}
-                            <div className="relative aspect-square overflow-hidden bg-primary-soft/25">
+                            <div className="relative aspect-square overflow-hidden md:self-center mx-0 md:mx-3 lg:mx-0">
                                 <Image
                                     src={blog.coverImage}
                                     alt={blog.coverImageAlt}
                                     fill
                                     priority
-                                    sizes="(max-width: 767px) 100vw, 45vw"
-                                    className="object-cover"
+                                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 34vw, 45vw"
+                                    className="object-cover rounded-none md:rounded-2xl lg:rounded-none"
                                 />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
 
-                                <span className="absolute left-4 top-4 rounded-full border border-white/60 bg-white/90 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-primary shadow-sm backdrop-blur-md">
+
+                                <span className="absolute left-4 top-4 rounded-full border border-white/60 bg-white/90 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-primary shadow-sm backdrop-blur-md md:left-3 md:top-3 md:px-3 md:py-1.5 md:text-[9px] lg:left-4 lg:top-4 lg:px-3.5 lg:py-2 lg:text-[10px]">
                                     {blog.category}
                                 </span>
                             </div>
 
                             {/* Content */}
-                            <div className="flex items-center bg-gradient-to-br from-background via-background to-primary-soft/20 px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+                            <div className="flex items-center bg-gradient-to-br from-background via-background to-primary-soft/20 px-6 py-8 sm:px-8 sm:py-10 md:px-6 md:py-6 lg:px-10 lg:py-0">
                                 <div className="w-full">
-                                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary md:text-[10px] lg:text-xs">
                                         Beauty Journal
                                     </p>
 
-                                    <h1 className="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-[-0.025em] text-foreground sm:text-4xl lg:text-[42px]">
+                                    <h1 className="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-[-0.025em] text-foreground sm:text-4xl md:mt-3 md:text-[26px] md:leading-[1.15] lg:mt-4 lg:text-[42px]">
                                         {blog.title}
                                     </h1>
 
-                                    <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+                                    <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base md:mt-3 md:text-[13px] md:leading-6 lg:mt-5 lg:text-base lg:leading-7">
                                         {blog.excerpt}
                                     </p>
 
-                                    {/* Meta */}
-                                    <div className="mt-6 flex justify-end items-center gap-x-5 gap-y-3 border-y border-border/80 py-4 text-xs text-muted-foreground sm:text-sm">
+                                    <div className="mt-6 flex items-center justify-end gap-x-5 gap-y-3 border-y border-border/80 py-4 text-xs text-muted-foreground sm:text-sm md:mt-4 md:py-3 md:text-[11px] lg:mt-6 lg:py-4 lg:text-sm">
                                         <span className="inline-flex items-center gap-2">
-                                            <CalendarDays className="h-4 w-4 text-primary" />
+                                            <CalendarDays className="h-4 w-4 text-primary md:h-3.5 md:w-3.5 lg:h-4 lg:w-4" />
                                             {blog.publishedDate}
                                         </span>
-
-
                                     </div>
 
-                                    {/* Author */}
-                                    <div className="mt-5 flex items-center gap-3">
-                                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-primary/10 bg-white">
+                                    <div className="mt-5 flex items-center gap-3 md:mt-4 md:gap-2.5 lg:mt-5 lg:gap-3">
+                                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-primary/10 bg-white md:h-9 md:w-9 lg:h-10 lg:w-10">
                                             <Image
                                                 src={blog.author.image}
                                                 alt={blog.author.name}
@@ -123,12 +118,12 @@ export default function BlogArticleHeader({
                                         </div>
 
                                         <div>
-                                            <p className="text-sm font-bold text-foreground">
+                                            <p className="text-sm font-bold text-foreground md:text-xs lg:text-sm">
                                                 {blog.author.name}
                                             </p>
 
                                             {blog.author.role && (
-                                                <p className="mt-0.5 text-xs text-muted-foreground">
+                                                <p className="mt-0.5 text-xs text-muted-foreground md:text-[10px] lg:text-xs">
                                                     {blog.author.role}
                                                 </p>
                                             )}

@@ -119,7 +119,7 @@ export default function ProductGallery({
     return (
         <>
             <div className="grid gap-3 sm:grid-cols-[76px_minmax(0,1fr)] sm:items-stretch lg:grid-cols-[82px_minmax(0,1fr)]">
-                {/* Desktop thumbnails */}
+
                 {/* Desktop thumbnails */}
                 {images.length > 1 && (
                     <div className="order-2 hidden h-full min-h-0 sm:order-1 sm:flex sm:items-center">
@@ -225,7 +225,7 @@ export default function ProductGallery({
 
                     {/* Mobile thumbnails */}
                     {images.length > 1 && (
-                        <div className="mt-4 flex gap-3 overflow-x-auto pb-2 sm:hidden">
+                        <div className="mt-4 flex gap-3 justify-center pb-2 sm:hidden">
                             {images.map((image, index) => {
                                 const isSelected =
                                     selectedIndex === index;
@@ -241,8 +241,8 @@ export default function ProductGallery({
                                             }`}
                                         className={`
                                             relative
-                                            h-20
-                                            w-20
+                                            h-15
+                                            w-15
                                             shrink-0
                                             overflow-hidden
                                             rounded-2xl
