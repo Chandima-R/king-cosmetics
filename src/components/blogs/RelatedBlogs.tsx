@@ -42,7 +42,7 @@ export default function RelatedBlogs({
                     </p>
                 </div>
 
-                <div className="mt-10 grid items-stretch gap-7 md:grid-cols-2 lg:grid-cols-2">
+                <div className="mt-10 grid items-stretch gap-7 md:grid-cols-1 lg:grid-cols-2">
                     {relatedBlogs.map((blog) => (
                         <BlogCard
                             key={blog.id}

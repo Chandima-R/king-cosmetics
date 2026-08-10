@@ -102,7 +102,7 @@ export default function BlogsGrid() {
 
                 {/* Grid */}
                 {filteredBlogs.length > 0 ? (
-                    <div className="mt-9 grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-2">
+                    <div className="mt-9 grid items-stretch gap-7 lg:grid-cols-2">
                         {filteredBlogs.map((blog) => (
                             <BlogCard
                                 key={blog.id}
